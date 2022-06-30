@@ -12,11 +12,11 @@
 
 <div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
   <div class="w3-display-topleft w3-padding-large w3-xlarge">
-  <h1 class="w3-jumbo w3-animate-top">AS ESTAÇÕES DE METRO DE Lisboa</h1>
+  <h2 class="w3-jumbo w3-animate-top">AS ESTAÇÕES DE METRO DE <b>Lisboa</b></h2>
   </div>
   <div class="w3-display-middle">
     
-      
+
 
   </div>
   <div class="w3-display-bottomleft w3-padding-large">

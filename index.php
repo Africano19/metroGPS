@@ -12,7 +12,7 @@
 
 <div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
   <div class="w3-display-topleft w3-padding-large w3-xlarge">
-  <h2 class="w3-jumbo w3-animate-top" style="background-color: rgba(0,0,0,.5);">AS ESTAÇÕES DE METRO DE <b>Lisboa</b></h2>
+  <h2 class="w3-jumbo w3-animate-top" style="background-color: rgba(0,0,0,.5); border-radius: 25px;">AS ESTAÇÕES DE METRO DE <b>Lisboa</b></h2>
   </div>
   <div class="w3-display-middle">
     

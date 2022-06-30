@@ -63,7 +63,6 @@ function onClick(element) {
   var captionText = document.getElementById("caption");
   captionText.innerHTML = element.alt;
 }
-<script src="assets/js/map.js"></script> 
 </script>
 
 </body>

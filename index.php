@@ -32,6 +32,7 @@
   <!-- Header -->
   <div class="w3-container" style="margin-top:80px" id="showcase">
     <h1 class="w3-jumbo"><b>Estações Mais Proximas</b></h1>
+    <img url="assets/img/img.jpg">
   </div>
   
 

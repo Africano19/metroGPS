@@ -14,7 +14,8 @@
 <nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
   <div class="w3-container">
-    <h2 class="w3-padding-64"><b>ESTAÇÕES DE METRO DE LISBOA</b></h2>
+    <h2 class="w3-padding-64"><b>METRO DE LISBOA</b></h2>
+    <img url="assets/img/img.jpg">
   </div>
 </nav>
 
@@ -32,7 +33,7 @@
   <!-- Header -->
   <div class="w3-container" style="margin-top:80px" id="showcase">
     <h1 class="w3-jumbo"><b>Estações Mais Proximas</b></h1>
-    <img url="assets/img/img.jpg">
+    
   </div>
   
 

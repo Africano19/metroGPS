@@ -37,7 +37,7 @@
     
   </div>
   
-  <div id="googleMap" style="width:100%;height:400px;"></div>
+  <div id="googleMap" style="width:100%;height:100%;"></div>
   
 
 <!-- End page content -->

@@ -16,7 +16,7 @@
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
   <div class="w3-container">
     <h2 class="w3-padding-64"><b>METRO DE LISBOA</b></h2>
-    <img src="assets/img/img.jpg" style="widht:100px; height:100px;">
+    <img src="assets/img/img.jpg" style="widht:150px; height:150px; border-radius: 10px 50px;">
   </div>
 </nav>
 

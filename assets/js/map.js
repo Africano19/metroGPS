@@ -5,7 +5,16 @@ var mapProp= {
 };
 var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
 
-}*/
+}
+
+new google.maps.Marker({
+            position: pos,
+            map,
+            title: "A minha Localização",
+            icon: "../img/arrow.png"
+          });
+
+*/
 
 let map, infoWindow;
 
@@ -25,12 +34,7 @@ function initMap() {
             lat: position.coords.latitude,
             lng: position.coords.longitude,
           };
-          new google.maps.Marker({
-            position: pos,
-            map,
-            title: "A minha Localização",
-            icon: "../img/arrow.png"
-          });
+          
           map.setCenter(pos);
         },
         () => {

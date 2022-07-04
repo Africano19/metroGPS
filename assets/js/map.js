@@ -47,7 +47,7 @@ function initMap() {
                   '<div id="content">' +
                   '<div id="siteNotice">' +
                   "</div>" +
-                  '<h1 id="firstHeading" class="firstHeading">Uluru</h1>' +
+                  '<h1 id="firstHeading" class="firstHeading">A Minha Localização.</h1>' +
                   '<div id="bodyContent">' +
                   "<p></p>" +
                   "</div>" +
@@ -70,13 +70,6 @@ function initMap() {
                     shouldFocus: false,
                   });
                 });
-              
-
-
-
-
-
-
         },
         () => {
           handleLocationError(true, infoWindow, map.getCenter());

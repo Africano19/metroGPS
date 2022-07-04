@@ -34,7 +34,9 @@ function initMap() {
             lat: position.coords.latitude,
             lng: position.coords.longitude,
           };
-          
+          infoWindow.setPosition(pos);
+          infoWindow.setContent("A Minha Localização");
+          infoWindow.open(map);
           map.setCenter(pos);
         },
         () => {

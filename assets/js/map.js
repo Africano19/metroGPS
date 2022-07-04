@@ -25,14 +25,14 @@ function initMap() {
             lat: position.coords.latitude,
             lng: position.coords.longitude,
           };
-          var icon = { 
+          var iconn = { 
             url: '../img/arrow.png'
             };
           new google.maps.Marker({
             position: pos,
             map,
             title: "A minha Localização",
-            icon: icon,
+            icon: iconn,
           });
           map.setCenter(pos);
         },

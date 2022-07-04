@@ -25,13 +25,12 @@ function initMap() {
             lat: position.coords.latitude,
             lng: position.coords.longitude,
           };
-
-          infoWindow.setPosition(pos);
           new google.maps.Marker({
             position: pos,
             map,
             title: "A minha Localização",
           });
+          map.setCenter(pos);
         },
         () => {
           handleLocationError(true, infoWindow, map.getCenter());

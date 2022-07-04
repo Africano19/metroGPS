@@ -46,7 +46,7 @@ function generateMarkers(){
                 map,
                 title: "Marker",
                 icon: {
-                  url: "../img/arrow.png"
+                  src: "../img/arrow.png"
                 }
               });
 

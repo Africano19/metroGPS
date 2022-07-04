@@ -25,19 +25,11 @@ function initMap() {
             lat: position.coords.latitude,
             lng: position.coords.longitude,
           };
-
-          const icon = {
-            url: "../img/arrow.png", // url
-            scaledSize: new google.maps.Size(50, 50), // scaled size
-            origin: new google.maps.Point(0,0), // origin
-            anchor: new google.maps.Point(0, 0) // anchor
-          };
-
           new google.maps.Marker({
             position: pos,
             map,
             title: "A minha Localização",
-            icon: icon
+            icon: "../img/arrow.png"
           });
           map.setCenter(pos);
         },

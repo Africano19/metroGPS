@@ -11,7 +11,9 @@ function initMap() {
 
   //generateMarkers();
   infoWindow = new google.maps.InfoWindow();
-  clearOverlays();
+  markersArray.push(marker);
+  google.maps.event.addListener(marker,"click",function(){});
+  map.clearOverlays();
   getLocation();
 
 
@@ -120,12 +122,13 @@ function showDirectionFromHome(endLat, endLong) {
 
 */
 
-function clearOverlays() {
-  for (var i = 0; i < markersArray.length; i++ ) {
-    markersArray[i].setMap(null);
+  google.maps.Map.prototype.clearOverlays = function() {
+    for (var i = 0; i < markersArray.length; i++ ) {
+      markersArray[i].setMap(null);
+    }
+    markersArray.length = 0;
   }
-  markersArray.length = 0;
-}
+
 
 function getLocation() {
   

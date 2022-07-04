@@ -28,7 +28,7 @@ function initMap() {
           new google.maps.Marker({
             position: pos,
             map,
-            title: "A minha Localização",
+            label: "A minha Localização",
           });
           map.setCenter(pos);
         },

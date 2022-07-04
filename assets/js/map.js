@@ -43,7 +43,15 @@ function initMap() {
           };
           map.setCenter(pos);
 
-
+                const contentString =
+                  '<div id="content">' +
+                  '<div id="siteNotice">' +
+                  "</div>" +
+                  '<h1 id="firstHeading" class="firstHeading">Uluru</h1>' +
+                  '<div id="bodyContent">' +
+                  "<p></p>" +
+                  "</div>" +
+                  "</div>";
 
                 const infowindow = new google.maps.InfoWindow({
                   content: contentString,

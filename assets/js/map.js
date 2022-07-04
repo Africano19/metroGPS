@@ -26,7 +26,7 @@ function initMap() {
             lng: position.coords.longitude,
           };
           var icon = { 
-            url: '../img/arrow.webp'
+            url: '../img/arrow.png'
             };
           new google.maps.Marker({
             position: pos,

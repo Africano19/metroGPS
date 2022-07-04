@@ -40,11 +40,10 @@ function generateMarkers(){
               const infowindow = new google.maps.InfoWindow({
                 content: contentString,
               });
-
-              const marker = new google.maps.Marker({
+              const markerSub = new google.maps.Marker({
                 position: { lat: geo.coordinates[1], lng: geo.coordinates[0]},
                 map,
-                title: "Marker",
+                title: item.est_name,
                 icon: {
                   path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
                   strokeColor: "red",
@@ -52,9 +51,9 @@ function generateMarkers(){
                 }
               });
 
-              marker.addListener("click", () => {
+              markerSub.addListener("click", () => {
                 infowindow.open({
-                  anchor: marker,
+                  anchor: markerSub,
                   map,
                   shouldFocus: false,
                 });

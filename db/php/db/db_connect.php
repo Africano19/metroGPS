@@ -11,20 +11,17 @@ function OpenCon()
   $port = "5432";
 
   $con = "dbname=" . $dbname . " host=" . $host . " port=" . $port . " user=" . $user . " password=" . $password . " sslmode=require";
-  echo 'j!!';
+
   $conn = pg_connect($con);
 
   if($conn){
-      echo "Connected <br />" . $conn;
+      //echo "Connected <br />" . $conn;
+      return $conn;
   }else {
       echo "Not connected";
   }
 
 }
 
-function CloseCon($conn)
-{
-    $conn -> close();
-}
 
 ?>

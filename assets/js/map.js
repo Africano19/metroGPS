@@ -45,6 +45,9 @@ function generateMarkers(){
                 position: { lat: geo.coordinates[1], lng: geo.coordinates[0]},
                 map,
                 title: "Marker",
+                icon: {
+                  url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+                }
               });
 
               marker.addListener("click", () => {

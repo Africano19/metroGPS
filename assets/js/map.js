@@ -116,6 +116,7 @@ function showDirectionFromHome(endLat, endLong) {
     }));
 }
 
+*/
 
 function getLocation() {
   
@@ -164,7 +165,7 @@ function getLocation() {
     handleLocationError(false, infoWindow, map.getCenter());
   }
 
-}*/
+}
 
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {

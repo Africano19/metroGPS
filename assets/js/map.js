@@ -53,12 +53,12 @@ function generateMarkers(){
               });
 
               marker.addListener("click", () => {
-                if (activeInfoWindow) { activeInfoWindow.close();}
-                infowindow.open({
-                  anchor: marker,
-                  map,
-                  shouldFocus: false,
-                });
+                if (prevInfowindow) {
+                  prevInfowindow.close();
+                }
+            
+                prevInfowindow = infowindow;
+                infoWindow.open(base.map, marker);
               });
 
 			});

@@ -1,6 +1,7 @@
 var myLocation;
 var homeLocation;
 let map, infoWindow;
+var markersArray = [];
 
 function initMap() {
   map = new google.maps.Map(document.getElementById("googleMap"), {
@@ -10,6 +11,7 @@ function initMap() {
 
   //generateMarkers();
   infoWindow = new google.maps.InfoWindow();
+  clearOverlays();
   getLocation();
 
 
@@ -117,6 +119,13 @@ function showDirectionFromHome(endLat, endLong) {
 }
 
 */
+
+function clearOverlays() {
+  for (var i = 0; i < markersArray.length; i++ ) {
+    markersArray[i].setMap(null);
+  }
+  markersArray.length = 0;
+}
 
 function getLocation() {
   

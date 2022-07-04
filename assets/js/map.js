@@ -1,8 +1,6 @@
 var myLocation;
 var homeLocation;
 let map, infoWindow;
-var markersArray = [];
-
 function initMap() {
   map = new google.maps.Map(document.getElementById("googleMap"), {
     center: { lat: -34.397, lng: 150.644 },
@@ -11,9 +9,6 @@ function initMap() {
 
   //generateMarkers();
   infoWindow = new google.maps.InfoWindow();
-  markersArray.push(marker);
-  google.maps.event.addListener(marker,"click",function(){});
-  map.clearOverlays();
   getLocation();
 
 
@@ -121,14 +116,6 @@ function showDirectionFromHome(endLat, endLong) {
 }
 
 */
-
-  google.maps.Map.prototype.clearOverlays = function() {
-    for (var i = 0; i < markersArray.length; i++ ) {
-      markersArray[i].setMap(null);
-    }
-    markersArray.length = 0;
-  }
-
 
 function getLocation() {
   

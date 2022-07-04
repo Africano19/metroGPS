@@ -2,8 +2,8 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiYWZyaWNhbm8xOSIsImEiOiJjbDUxaGY1YXIwNXFoM2Nxc
 const map = new mapboxgl.Map({
 container: 'mapBox', // container ID
 style: 'mapbox://styles/mapbox/streets-v11', // style URL
-center: [38.7890123,-9.2026486],
-zoom: 13
+center: [38.74, -9.14], // starting position [lng, lat]
+zoom: 9, // starting zoom
 });
 map.on('style.load', () => {
 map.setFog({}); // Set the default atmosphere style

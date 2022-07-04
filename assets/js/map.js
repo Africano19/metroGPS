@@ -9,7 +9,7 @@ var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
 
 let map, infoWindow;
 
-function myMap() {
+function initMap() {
   map = new google.maps.Map(document.getElementById("googleMap"), {
     center: { lat: -34.397, lng: 150.644 },
     zoom: 6,

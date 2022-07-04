@@ -26,7 +26,7 @@ function generateMarkers(){
 
 			data.forEach((item) => {
 				let geo = JSON.parse(item.est_geometry);
-
+          
           const contentString =
                 '<div id="content">' +
                 '<div id="siteNotice">' +
@@ -46,7 +46,7 @@ function generateMarkers(){
                 map,
                 title: "Marker",
                 icon: {
-                  url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+                  url: "../img/arrow.png"
                 }
               });
 

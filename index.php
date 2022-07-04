@@ -30,7 +30,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
     <p>HOME</p>
   </a>
   <a href="#estacoes" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-    <i class="fa fa-user w3-xxlarge"></i>
+    <i class="bi bi-map-fill"></i>
     <p>ESTAÇÕES</p>
   </a>
 </nav>

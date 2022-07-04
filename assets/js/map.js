@@ -17,11 +17,6 @@ function initMap() {
   infoWindow = new google.maps.InfoWindow();
 
   const locationButton = document.createElement("button");
-
-  locationButton.textContent = "A minha localização Atual?";
-  locationButton.classList.add("custom-map-control-button");
-  map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
-  locationButton.addEventListener("click", () => {
     // Try HTML5 geolocation.
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -44,7 +39,7 @@ function initMap() {
       // Browser doesn't support Geolocation
       handleLocationError(false, infoWindow, map.getCenter());
     }
-  });
+
 }
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {

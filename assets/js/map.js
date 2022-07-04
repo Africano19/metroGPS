@@ -31,7 +31,7 @@ function generateMarkers(){
                 '<div id="content">' +
                 '<div id="siteNotice">' +
                 "</div>" +
-                '<h3 id="firstHeading" class="firstHeading">'+item.est_name+'</h3>' +
+                '<h3 id="firstHeading" class="firstHeading" style="font-size: 10px;">'+item.est_name+'</h3>' +
                 '<div id="bodyContent">' +
                 '<p>'+item.est_line+'</p>' +
                 "</div>" +

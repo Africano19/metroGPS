@@ -1,14 +1,22 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoiYWZyaWNhbm8xOSIsImEiOiJjbDUxaGY1YXIwNXFoM2NxcG1najZmZGpvIn0._lqJtlkSKz5RM6GHyIGkbg';
-const map = new mapboxgl.Map({
-container: 'mapBox', // container ID
-style: 'mapbox://styles/mapbox/streets-v11', // style URL
-center: [38.74, -9.14], // starting position [lng, lat]
-zoom: 9, // starting zoom
+
+var map = document.getElementById('mapBox');
+
+var myLocation;
+var homeLocation;
+
+document.addEventListener("DOMContentLoaded", function() {
+
+	map = L.map('mapBox', {
+    layers: MQ.mapLayer(),
+    center: [38.736946, -9.142685],
+    zoom: 13
+	});
+	getLocation();
+
+
 });
-map.on('style.load', () => {
-map.setFog({}); // Set the default atmosphere style
-});
-getLocation();
+
 
 function getLocation() {
   if (navigator.geolocation) {

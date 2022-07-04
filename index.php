@@ -55,7 +55,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
     <h2 class="w3-text-light-grey">Estações</h2>
     <hr style="width:200px" class="w3-opacity">
     
-    <div id="googleMap" style="width:100%;height:550px;"></div>
+    <div id="googleMap" style="width:100%;height:600px;"></div>
   
   <!-- End Contact Section -->
   </div>

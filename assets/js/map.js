@@ -133,7 +133,7 @@ function getLocation() {
                 '<div id="content">' +
                 '<div id="siteNotice">' +
                 "</div>" +
-                '<h1 id="firstHeading" class="firstHeading">A Minha Localização.</h1>' +
+                '<h3 id="firstHeading" class="firstHeading">A Minha Localização.</h3>' +
                 '<div id="bodyContent">' +
                 "<p></p>" +
                 "</div>" +

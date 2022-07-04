@@ -27,7 +27,11 @@ function initMap() {
           };
 
           infoWindow.setPosition(pos);
-          infoWindow.setContent("A minha localização.");
+          new google.maps.Marker({
+            position: pos,
+            map,
+            title: "A minha Localização",
+          });
           infoWindow.open(map);
           map.setCenter(pos);
         },

@@ -27,31 +27,34 @@ function generateMarkers(){
 			data.forEach((item) => {
 				let geo = JSON.parse(item.est_geometry);
 
-					let mainDiv = document.createElement('div');
+          const contentString =
+                '<div id="content">' +
+                '<div id="siteNotice">' +
+                "</div>" +
+                '<h3 id="firstHeading" class="firstHeading">'+item.est_name+'</h3>' +
+                '<div id="bodyContent">' +
+                '<p>'+item.est_line+'</p>' +
+                "</div>" +
+                "</div>";
 
-			    //AddTitle
-			    let title = document.createElement('p');
-			    title.innerHTML = item.est_name;
-			    mainDiv.appendChild(title);
+              const infowindow = new google.maps.InfoWindow({
+                content: contentString,
+              });
 
-			    //AddButtonHome
-			    let homeButton = document.createElement('button');
-			    homeButton.innerHTML = "From Home";
-			    homeButton.addEventListener('click', () => {
-			        showDirectionFromHome(geo.coordinates[1],geo.coordinates[0]);
-			    });
-			    mainDiv.appendChild(homeButton);
+              const marker = new google.maps.Marker({
+                position: { lat: geo.coordinates[1], lng: geo.coordinates[0]},
+                map,
+                title: "Marker",
+              });
 
-			    //AddButtonLoc
-			    let locButton = document.createElement('button');
-			    locButton.innerHTML = "From Location";
-			    locButton.addEventListener('click', () => {
-			        showDirection(myLocation.latitude,myLocation.longitude,geo.coordinates[1],geo.coordinates[0]);
-			    });
-			    mainDiv.appendChild(locButton);
+              marker.addListener("click", () => {
+                infowindow.open({
+                  anchor: marker,
+                  map,
+                  shouldFocus: false,
+                });
+              });
 
-
-			    L.marker([geo.coordinates[1], geo.coordinates[0]]).bindPopup(mainDiv).addTo(map);
 			});
 
 		}

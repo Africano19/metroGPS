@@ -53,6 +53,8 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
     <img src="assets/img/img.jpg" alt="boy" class="w3-image" width="992" height="1108">
   </header>
 
+  <br><br><br><br>
+
   <!-- About Section -->
   <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="estacoes">
     <h2 class="w3-text-light-grey">Estações</h2>

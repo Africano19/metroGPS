@@ -7,30 +7,30 @@ function initMap() {
     zoom: 13,
   });
 
-  //generateMarkers();
+  generateMarkers();
   infoWindow = new google.maps.InfoWindow();
   getLocation();
 
 
 }
 
-/*
+
 function generateMarkers(){
 
 	$.ajax({
-		url: 'https://jadoc.pt/db/php/authentication/servspublicos.php',
+		url: 'https://gps-metro.herokuapp.com/db/php/auten/estacoes.php',
 		type:"GET",
 		dataType: 'json',
 		success: function(data){
 
 			data.forEach((item) => {
-				let geo = JSON.parse(item.servpub_geometry);
+				let geo = JSON.parse(item.est_geometry);
 
 					let mainDiv = document.createElement('div');
 
 			    //AddTitle
 			    let title = document.createElement('p');
-			    title.innerHTML = item.servpub_name;
+			    title.innerHTML = item.est_name;
 			    mainDiv.appendChild(title);
 
 			    //AddButtonHome
@@ -56,7 +56,7 @@ function generateMarkers(){
 		}
 	});
 }
-
+/*
 function showDirection(startLat, startLong, endLat, endLong) {
     map.remove();
 

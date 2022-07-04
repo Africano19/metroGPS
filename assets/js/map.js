@@ -1,28 +1,3 @@
-/*function myMap() {
-var mapProp= {
-  center:new google.maps.LatLng(51.508742,-0.120850),
-  zoom:5,
-};
-var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-
-}
-
-new google.maps.Marker({
-            position: pos,
-            map,
-            title: "A minha Localização",
-            icon: "../img/arrow.png"
-          });
-
-
-
-infoWindow.setPosition(pos);
-          infoWindow.setContent("A Minha Localização");
-          infoWindow.open(map);
-          map.setCenter(pos);
-
-*/
-
 let map, infoWindow;
 
 function initMap() {
@@ -32,8 +7,9 @@ function initMap() {
   });
   infoWindow = new google.maps.InfoWindow();
 
+
+  //A minha localização
   const locationButton = document.createElement("button");
-    // Try HTML5 geolocation.
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
@@ -76,9 +52,12 @@ function initMap() {
         }
       );
     } else {
-      // Browser doesn't support Geolocation
       handleLocationError(false, infoWindow, map.getCenter());
     }
+
+
+    //Lozalização das estações
+
 
 }
 

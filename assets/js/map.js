@@ -32,8 +32,6 @@ function initMap() {
             map,
             title: "A minha Localização",
           });
-          infoWindow.open(map);
-          map.setCenter(pos);
         },
         () => {
           handleLocationError(true, infoWindow, map.getCenter());

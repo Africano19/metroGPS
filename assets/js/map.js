@@ -46,7 +46,9 @@ function generateMarkers(){
                 map,
                 title: "Marker",
                 icon: {
-                  src: "../img/arrow.png"
+                  path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
+                  strokeColor: "red",
+                  scale: 3
                 }
               });
 

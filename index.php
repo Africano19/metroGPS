@@ -9,10 +9,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-<script
-  src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-  integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
-  crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"></script>
+<script src="assets/js/map.js"></script> 
 <style>
 body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 .w3-row-padding img {margin-bottom: 12px}
@@ -58,11 +56,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
   <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="estacoes">
     <h2 class="w3-text-light-grey">Estações</h2>
     <hr style="width:200px" class="w3-opacity">
-    <button type="button" onclick="greenL()">Linha Verde</button>
-    <button type="button" onclick="//yellowLines()">Linha Amarela</button>
-    <button type="button" onclick="//blueLines()">Linha Azul</button>
-    <button type="button" onclick="//redLines()">Linha Vermelho</button>
-    <button type="button" onclick="allLines()">Todas as Linhas</button>    
+    
     <div id="googleMap" style="width:100%;height:600px;"></div>
   
   <!-- End Contact Section -->

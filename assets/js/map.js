@@ -10,7 +10,7 @@ function initMap() {
   });
   infoWindow = new google.maps.InfoWindow();
   getLocation();
-
+  allStations();
 
 }
 
@@ -124,9 +124,245 @@ $(document).ready(function() {
     });
   
     getLocation();
-    
+
   $.ajax({
 		url: 'https://gps-metro.herokuapp.com/db/php/auten/green.php',
+		type:"GET",
+		dataType: 'json',
+		success: function(data){
+
+			data.forEach((item) => {
+				let geo = JSON.parse(item.est_geometry);
+          
+          const contentString =
+                '<div id="content">' +
+                '<div id="siteNotice">' +
+                "</div>" +
+                '<h3 id="firstHeading" class="firstHeading" style="font-size: 15px;"><b>'+item.est_name+'<b/></h3>' +
+                '<div id="bodyContent">' +
+                '<p>'+item.est_line+'</p> </div>'+
+                "</div>";
+
+              const infowindow = new google.maps.InfoWindow({
+                content: contentString,
+              });
+              const markerSub = new google.maps.Marker({
+                position: { lat: geo.coordinates[1], lng: geo.coordinates[0]},
+                map,
+                title: item.est_name,
+                icon: {
+                  path: google.maps.SymbolPath.CIRCLE,
+                  strokeColor: "green",
+                  scale: 3
+                }
+              });
+
+              markerSub.addListener("click", () => {
+                infowindow.open({
+                  anchor: markerSub,
+                  map,
+                  shouldFocus: true,
+                });
+              });
+
+			  });
+		  }
+	  });
+  });
+});
+
+// Linha Azul
+$(document).ready(function() {
+  $("#blueLine").click(function(e) {
+    e.preventDefault();
+    //map.remove();
+
+    map = new google.maps.Map(document.getElementById("googleMap"), {
+      center: { lat: -34.397, lng: 150.644 },
+      zoom: 13,
+    });
+  
+    getLocation();
+    
+  $.ajax({
+		url: 'https://gps-metro.herokuapp.com/db/php/auten/blue.php',
+		type:"GET",
+		dataType: 'json',
+		success: function(data){
+
+			data.forEach((item) => {
+				let geo = JSON.parse(item.est_geometry);
+          
+          const contentString =
+                '<div id="content">' +
+                '<div id="siteNotice">' +
+                "</div>" +
+                '<h3 id="firstHeading" class="firstHeading" style="font-size: 15px;"><b>'+item.est_name+'<b/></h3>' +
+                '<div id="bodyContent">' +
+                '<p>'+item.est_line+'</p> </div>'+
+                "</div>";
+
+              const infowindow = new google.maps.InfoWindow({
+                content: contentString,
+              });
+              const markerSub = new google.maps.Marker({
+                position: { lat: geo.coordinates[1], lng: geo.coordinates[0]},
+                map,
+                title: item.est_name,
+                icon: {
+                  path: google.maps.SymbolPath.CIRCLE,
+                  strokeColor: "blue",
+                  scale: 3
+                }
+              });
+
+              markerSub.addListener("click", () => {
+                infowindow.open({
+                  anchor: markerSub,
+                  map,
+                  shouldFocus: true,
+                });
+              });
+
+			  });
+		  }
+	  });
+  });
+});
+
+// Linha Vermelha
+$(document).ready(function() {
+  $("#redLine").click(function(e) {
+    e.preventDefault();
+    //map.remove();
+
+    map = new google.maps.Map(document.getElementById("googleMap"), {
+      center: { lat: -34.397, lng: 150.644 },
+      zoom: 13,
+    });
+  
+    getLocation();
+    
+  $.ajax({
+		url: 'https://gps-metro.herokuapp.com/db/php/auten/red.php',
+		type:"GET",
+		dataType: 'json',
+		success: function(data){
+
+			data.forEach((item) => {
+				let geo = JSON.parse(item.est_geometry);
+          
+          const contentString =
+                '<div id="content">' +
+                '<div id="siteNotice">' +
+                "</div>" +
+                '<h3 id="firstHeading" class="firstHeading" style="font-size: 15px;"><b>'+item.est_name+'<b/></h3>' +
+                '<div id="bodyContent">' +
+                '<p>'+item.est_line+'</p> </div>'+
+                "</div>";
+
+              const infowindow = new google.maps.InfoWindow({
+                content: contentString,
+              });
+              const markerSub = new google.maps.Marker({
+                position: { lat: geo.coordinates[1], lng: geo.coordinates[0]},
+                map,
+                title: item.est_name,
+                icon: {
+                  path: google.maps.SymbolPath.CIRCLE,
+                  strokeColor: "red",
+                  scale: 3
+                }
+              });
+
+              markerSub.addListener("click", () => {
+                infowindow.open({
+                  anchor: markerSub,
+                  map,
+                  shouldFocus: true,
+                });
+              });
+
+			  });
+		  }
+	  });
+  });
+});
+
+// Linha Amarela
+$(document).ready(function() {
+  $("#yellowLine").click(function(e) {
+    e.preventDefault();
+    //map.remove();
+
+    map = new google.maps.Map(document.getElementById("googleMap"), {
+      center: { lat: -34.397, lng: 150.644 },
+      zoom: 13,
+    });
+  
+    getLocation();
+    
+  $.ajax({
+		url: 'https://gps-metro.herokuapp.com/db/php/auten/yellow.php',
+		type:"GET",
+		dataType: 'json',
+		success: function(data){
+
+			data.forEach((item) => {
+				let geo = JSON.parse(item.est_geometry);
+          
+          const contentString =
+                '<div id="content">' +
+                '<div id="siteNotice">' +
+                "</div>" +
+                '<h3 id="firstHeading" class="firstHeading" style="font-size: 15px;"><b>'+item.est_name+'<b/></h3>' +
+                '<div id="bodyContent">' +
+                '<p>'+item.est_line+'</p> </div>'+
+                "</div>";
+
+              const infowindow = new google.maps.InfoWindow({
+                content: contentString,
+              });
+              const markerSub = new google.maps.Marker({
+                position: { lat: geo.coordinates[1], lng: geo.coordinates[0]},
+                map,
+                title: item.est_name,
+                icon: {
+                  path: google.maps.SymbolPath.CIRCLE,
+                  strokeColor: "yellow",
+                  scale: 3
+                }
+              });
+
+              markerSub.addListener("click", () => {
+                infowindow.open({
+                  anchor: markerSub,
+                  map,
+                  shouldFocus: true,
+                });
+              });
+
+			  });
+		  }
+	  });
+  });
+});
+
+// Todas as Linhas
+$(document).ready(function() {
+  $("#allLines").click(function(e) {
+    e.preventDefault();
+    //map.remove();
+
+    map = new google.maps.Map(document.getElementById("googleMap"), {
+      center: { lat: -34.397, lng: 150.644 },
+      zoom: 13,
+    });
+  
+    getLocation();
+    
+  $.ajax({
+		url: 'https://gps-metro.herokuapp.com/db/php/auten/estacoes.php',
 		type:"GET",
 		dataType: 'json',
 		success: function(data){

@@ -329,7 +329,7 @@ $(document).ready(function() {
                 title: item.est_name,
                 icon: {
                   path: google.maps.SymbolPath.CIRCLE,
-                  strokeColor: "yellow",
+                  strokeColor: "#FFFF00",
                   scale: 3
                 }
               });
@@ -388,7 +388,7 @@ $(document).ready(function() {
                 title: item.est_name,
                 icon: {
                   path: google.maps.SymbolPath.CIRCLE,
-                  strokeColor: "green",
+                  strokeColor: "red",
                   scale: 3
                 }
               });

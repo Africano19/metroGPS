@@ -6,7 +6,7 @@ var homeLocation;
 document.addEventListener("DOMContentLoaded", function() {
 
 	map = L.map('leaflet2', {
-    layers: MQ.mapLayer(),
+    layers: L.mapquest.tileLayer('leaflet2'),
     center: [38.736946, -9.142685],
     zoom: 13
 	});

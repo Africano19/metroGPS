@@ -10,77 +10,11 @@ function initMap() {
   infoWindow = new google.maps.InfoWindow();
   getLocation();
   //allLines()
-  greenLines();
+  //greenLines();
 }
 
-function greenLines(){
-  //map.remove();
 
-  map = new google.maps.Map(document.getElementById("googleMap"), {
-    center: { lat: -34.397, lng: 150.644 },
-    zoom: 13,
-  });
-
-  getLocation();
-
-  $.ajax({
-		url: 'https://gps-metro.herokuapp.com/db/php/auten/green.php',
-		type:"GET",
-		dataType: 'json',
-		success: function(data){
-
-			data.forEach((item) => {
-				let geo = JSON.parse(item.est_geometry);
-          
-          const contentString =
-                '<div id="content">' +
-                '<div id="siteNotice">' +
-                "</div>" +
-                '<h3 id="firstHeading" class="firstHeading" style="font-size: 15px;"><b>'+item.est_name+'<b/></h3>' +
-                '<div id="bodyContent">' +
-                '<p>'+item.est_line+'</p> </div>'+
-                "</div>";
-
-              const infowindow = new google.maps.InfoWindow({
-                content: contentString,
-              });
-              const markerSub = new google.maps.Marker({
-                position: { lat: geo.coordinates[1], lng: geo.coordinates[0]},
-                map,
-                title: item.est_name,
-                icon: {
-                  path: google.maps.SymbolPath.CIRCLE,
-                  strokeColor: "green",
-                  scale: 3
-                }
-              });
-
-              markerSub.addListener("click", () => {
-                infowindow.open({
-                  anchor: markerSub,
-                  map,
-                  shouldFocus: true,
-                });
-              });
-
-			});
-
-		}
-	});
-}
-
-function yellowLines(){
-  
-}
-
-function blueLines(){
-  
-}
-
-function redLines(){
-  
-}
-
+//Todas as Estações
 function allLines(){
   $.ajax({
 		url: 'https://gps-metro.herokuapp.com/db/php/auten/estacoes.php',
@@ -128,67 +62,7 @@ function allLines(){
 	});
 }
 
-
-/*
-function showDirection(startLat, startLong, endLat, endLong) {
-    map.remove();
-
-		map = new google.maps.Map(document.getElementById("googleMap"), {
-      center: { lat: -34.397, lng: 150.644 },
-      zoom: 13,
-    });
-
-
-		let mark = L.marker([myLocation.latitude, myLocation.longitude]).bindPopup("My Location").addTo(map);
-
-    generateMarkers();
-
-    var dir = MQ.routing.directions();
-
-    dir.route({
-        locations: [
-            { latLng: { lat: startLat, lng: startLong } },
-            { latLng: { lat: endLat, lng: endLong } }
-        ],
-    });
-
-    map.addLayer(new MQ.Routing.RouteLayer({
-        directions: dir,
-        fitBounds: true
-    }));
-}
-
-
-function showDirectionFromHome(endLat, endLong) {
-    map.remove();
-
-		map = L.map('googleMap', {
-			layers: MQ.mapLayer(),
-			center: [38.736946, -9.142685],
-			zoom: 13
-		});
-
-
-		let mark = L.marker([myLocation.latitude, myLocation.longitude]).bindPopup("My Location").addTo(map);
-
-    generateMarkers();
-
-    var dir = MQ.routing.directions();
-
-    dir.route({
-        locations: [
-            homeLocation,
-            { latLng: { lat: endLat, lng: endLong } }
-        ],
-    });
-
-    map.addLayer(new MQ.Routing.RouteLayer({
-        directions: dir,
-        fitBounds: true
-    }));
-}
-
-*/
+// A MINHA LOCALIZAÇÃO
 
 function getLocation() {
   
@@ -239,6 +113,249 @@ function getLocation() {
 
 }
 
+// Linha Verde
+
+function greenL(){
+  //map.remove();
+
+  map = new google.maps.Map(document.getElementById("googleMap"), {
+    center: { lat: -34.397, lng: 150.644 },
+    zoom: 13,
+  });
+
+  getLocation();
+  greenLinesAjax();
+}
+
+function greenLinesAjax(){
+  $.ajax({
+		url: 'https://gps-metro.herokuapp.com/db/php/auten/green.php',
+		type:"GET",
+		dataType: 'json',
+		success: function(data){
+
+			data.forEach((item) => {
+				let geo = JSON.parse(item.est_geometry);
+          
+          const contentString =
+                '<div id="content">' +
+                '<div id="siteNotice">' +
+                "</div>" +
+                '<h3 id="firstHeading" class="firstHeading" style="font-size: 15px;"><b>'+item.est_name+'<b/></h3>' +
+                '<div id="bodyContent">' +
+                '<p>'+item.est_line+'</p> </div>'+
+                "</div>";
+
+              const infowindow = new google.maps.InfoWindow({
+                content: contentString,
+              });
+              const markerSub = new google.maps.Marker({
+                position: { lat: geo.coordinates[1], lng: geo.coordinates[0]},
+                map,
+                title: item.est_name,
+                icon: {
+                  path: google.maps.SymbolPath.CIRCLE,
+                  strokeColor: "green",
+                  scale: 3
+                }
+              });
+
+              markerSub.addListener("click", () => {
+                infowindow.open({
+                  anchor: markerSub,
+                  map,
+                  shouldFocus: true,
+                });
+              });
+
+			});
+
+		}
+	});
+}
+
+//LINHA AMARELA
+function yellowL(){
+  //map.remove();
+
+  map = new google.maps.Map(document.getElementById("googleMap"), {
+    center: { lat: -34.397, lng: 150.644 },
+    zoom: 13,
+  });
+
+  getLocation();
+  yellowLinesAjax();
+}
+
+
+function yellowLinesAjax(){
+  $.ajax({
+		url: 'https://gps-metro.herokuapp.com/db/php/auten/green.php',
+		type:"GET",
+		dataType: 'json',
+		success: function(data){
+
+			data.forEach((item) => {
+				let geo = JSON.parse(item.est_geometry);
+          
+          const contentString =
+                '<div id="content">' +
+                '<div id="siteNotice">' +
+                "</div>" +
+                '<h3 id="firstHeading" class="firstHeading" style="font-size: 15px;"><b>'+item.est_name+'<b/></h3>' +
+                '<div id="bodyContent">' +
+                '<p>'+item.est_line+'</p> </div>'+
+                "</div>";
+
+              const infowindow = new google.maps.InfoWindow({
+                content: contentString,
+              });
+              const markerSub = new google.maps.Marker({
+                position: { lat: geo.coordinates[1], lng: geo.coordinates[0]},
+                map,
+                title: item.est_name,
+                icon: {
+                  path: google.maps.SymbolPath.CIRCLE,
+                  strokeColor: "green",
+                  scale: 3
+                }
+              });
+
+              markerSub.addListener("click", () => {
+                infowindow.open({
+                  anchor: markerSub,
+                  map,
+                  shouldFocus: true,
+                });
+              });
+
+			});
+
+		}
+	});
+}
+
+//LINHA VERMELHA
+function redL(){
+  //map.remove();
+
+  map = new google.maps.Map(document.getElementById("googleMap"), {
+    center: { lat: -34.397, lng: 150.644 },
+    zoom: 13,
+  });
+
+  getLocation();
+  redLinesAjax();
+}
+
+
+function redLinesAjax(){
+  $.ajax({
+		url: 'https://gps-metro.herokuapp.com/db/php/auten/green.php',
+		type:"GET",
+		dataType: 'json',
+		success: function(data){
+
+			data.forEach((item) => {
+				let geo = JSON.parse(item.est_geometry);
+          
+          const contentString =
+                '<div id="content">' +
+                '<div id="siteNotice">' +
+                "</div>" +
+                '<h3 id="firstHeading" class="firstHeading" style="font-size: 15px;"><b>'+item.est_name+'<b/></h3>' +
+                '<div id="bodyContent">' +
+                '<p>'+item.est_line+'</p> </div>'+
+                "</div>";
+
+              const infowindow = new google.maps.InfoWindow({
+                content: contentString,
+              });
+              const markerSub = new google.maps.Marker({
+                position: { lat: geo.coordinates[1], lng: geo.coordinates[0]},
+                map,
+                title: item.est_name,
+                icon: {
+                  path: google.maps.SymbolPath.CIRCLE,
+                  strokeColor: "green",
+                  scale: 3
+                }
+              });
+
+              markerSub.addListener("click", () => {
+                infowindow.open({
+                  anchor: markerSub,
+                  map,
+                  shouldFocus: true,
+                });
+              });
+
+			});
+
+		}
+	});
+}
+
+//LINHA AZUL
+function blueL(){
+  //map.remove();
+
+  map = new google.maps.Map(document.getElementById("googleMap"), {
+    center: { lat: -34.397, lng: 150.644 },
+    zoom: 13,
+  });
+
+  getLocation();
+  blueLinesAjax();
+}
+
+
+function blueLinesAjax(){
+  $.ajax({
+		url: 'https://gps-metro.herokuapp.com/db/php/auten/green.php',
+		type:"GET",
+		dataType: 'json',
+		success: function(data){
+
+			data.forEach((item) => {
+				let geo = JSON.parse(item.est_geometry);
+          
+          const contentString =
+                '<div id="content">' +
+                '<div id="siteNotice">' +
+                "</div>" +
+                '<h3 id="firstHeading" class="firstHeading" style="font-size: 15px;"><b>'+item.est_name+'<b/></h3>' +
+                '<div id="bodyContent">' +
+                '<p>'+item.est_line+'</p> </div>'+
+                "</div>";
+
+              const infowindow = new google.maps.InfoWindow({
+                content: contentString,
+              });
+              const markerSub = new google.maps.Marker({
+                position: { lat: geo.coordinates[1], lng: geo.coordinates[0]},
+                map,
+                title: item.est_name,
+                icon: {
+                  path: google.maps.SymbolPath.CIRCLE,
+                  strokeColor: "green",
+                  scale: 3
+                }
+              });
+
+              markerSub.addListener("click", () => {
+                infowindow.open({
+                  anchor: markerSub,
+                  map,
+                  shouldFocus: true,
+                });
+              });
+
+			});
+
+		}
+	});
+}
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.setPosition(pos);

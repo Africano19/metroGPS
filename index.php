@@ -56,11 +56,11 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
   <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="estacoes">
     <h2 class="w3-text-light-grey">Estações</h2>
     <hr style="width:200px" class="w3-opacity">
-    <button type="button" onclick="greenLines();">Linha Verde</button>
-    <button type="button" onclick="yellowLines();">Linha Amarela</button>
-    <button type="button" onclick="blueLines();">Linha Azul</button>
-    <button type="button" onclick="redLines();">Linha Vermelho</button>
-    <button type="button" onclick="allLines();">Todas as Linhas</button>    
+    <button type="button" onclick="greenLines()">Linha Verde</button>
+    <button type="button" onclick="yellowLines()">Linha Amarela</button>
+    <button type="button" onclick="blueLines()">Linha Azul</button>
+    <button type="button" onclick="redLines()">Linha Vermelho</button>
+    <button type="button" onclick="allLines()">Todas as Linhas</button>    
     <div id="googleMap" style="width:100%;height:600px;"></div>
   
   <!-- End Contact Section -->

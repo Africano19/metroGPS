@@ -9,8 +9,8 @@ function initMap() {
   });
   infoWindow = new google.maps.InfoWindow();
   getLocation();
-  //allLines()
-  //greenLines();
+
+
 }
 
 

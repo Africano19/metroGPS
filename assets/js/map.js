@@ -66,7 +66,6 @@ function getLocation() {
 
 // Todas as estações
 function allStations(){
-
 	$.ajax({
 		url: 'https://gps-metro.herokuapp.com/db/php/auten/estacoes.php',
 		type:"GET",
@@ -114,20 +113,19 @@ function allStations(){
 }
 
 // Linha Verde
+$(document).ready(function() {
+  $("#greenLine").click(function(e) {
+    e.preventDefault();
+    //map.remove();
 
-function greenL(){
-  //map.remove();
+    map = new google.maps.Map(document.getElementById("googleMap"), {
+      center: { lat: -34.397, lng: 150.644 },
+      zoom: 13,
+    });
+  
+    getLocation();
+    greenLinesAjax();
 
-  map = new google.maps.Map(document.getElementById("googleMap"), {
-    center: { lat: -34.397, lng: 150.644 },
-    zoom: 13,
-  });
-
-  getLocation();
-  greenLinesAjax();
-}
-
-function greenLinesAjax(){
   $.ajax({
 		url: 'https://gps-metro.herokuapp.com/db/php/auten/green.php',
 		type:"GET",
@@ -168,11 +166,11 @@ function greenLinesAjax(){
                 });
               });
 
-			});
-
-		}
-	});
-}
+			  });
+		  }
+	  });
+  });
+});
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.setPosition(pos);

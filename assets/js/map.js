@@ -52,8 +52,12 @@ function generateMarkers(){
                 }
               });
 
-              google.maps.event.addListener(marker, 'click', function() {
-                infowindow.open(map,markerSub);
+              markerSub.addListener("click", () => {
+                infowindow.open({
+                  anchor: markerSub,
+                  map,
+                  shouldFocus: true,
+                });
               });
 
 			});

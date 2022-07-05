@@ -46,7 +46,7 @@ function generateMarkers(){
                 map,
                 title: item.est_name,
                 icon: {
-                  path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
+                  path: google.maps.SymbolPath.CIRCLE,
                   strokeColor: "red",
                   scale: 3
                 }

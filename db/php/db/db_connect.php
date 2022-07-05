@@ -4,10 +4,10 @@ function OpenCon()
 {
 
 
-  $host = "ec2-54-75-184-144.eu-west-1.compute.amazonaws.com";
-  $dbname = "dctsh3jburifva";
-  $user = "vbsklfhutehhtd";
-  $password = "352d12041f05eec6d219b20d0969033d99bccf6293073730e3dd1a866557c776";
+  $host = "ec2-54-228-125-183.eu-west-1.compute.amazonaws.com";
+  $dbname = "d5fmut8hbd5ct0";
+  $user = "pslohlrbuiyxuq";
+  $password = "1755901ed7135e25b2fc1091d489df47349bafe5727be01215d0b90fb80ef3b3";
   $port = "5432";
 
   $con = "dbname=" . $dbname . " host=" . $host . " port=" . $port . " user=" . $user . " password=" . $password . " sslmode=require";

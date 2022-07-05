@@ -33,9 +33,7 @@ function generateMarkers(){
                 "</div>" +
                 '<h3 id="firstHeading" class="firstHeading" style="font-size: 15px;"><b>'+item.est_name+'<b/></h3>' +
                 '<div id="bodyContent">' +
-                '<p>'+item.est_line+'</p>' +
-                '<button type="button" onclick="">Click Me!</button>' +
-                "</div>" +
+                '<p>'+item.est_line+'</p> </div>'+
                 "</div>";
 
               const infowindow = new google.maps.InfoWindow({

@@ -34,6 +34,7 @@ function generateMarkers(){
                 '<h3 id="firstHeading" class="firstHeading" style="font-size: 15px;"><b>'+item.est_name+'<b/></h3>' +
                 '<div id="bodyContent">' +
                 '<p>'+item.est_line+'</p>' +
+                '<button type="button" onclick="">Click Me!</button>' +
                 "</div>" +
                 "</div>";
 
@@ -64,15 +65,14 @@ function generateMarkers(){
 		}
 	});
 }
-/*
+
 function showDirection(startLat, startLong, endLat, endLong) {
     map.remove();
 
-		map = L.map('googleMap', {
-			layers: MQ.mapLayer(),
-			center: [38.736946, -9.142685],
-			zoom: 13
-		});
+		map = new google.maps.Map(document.getElementById("googleMap"), {
+      center: { lat: -34.397, lng: 150.644 },
+      zoom: 13,
+    });
 
 
 		let mark = L.marker([myLocation.latitude, myLocation.longitude]).bindPopup("My Location").addTo(map);
@@ -94,6 +94,7 @@ function showDirection(startLat, startLong, endLat, endLong) {
     }));
 }
 
+/*
 function showDirectionFromHome(endLat, endLong) {
     map.remove();
 

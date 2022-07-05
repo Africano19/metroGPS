@@ -11,13 +11,13 @@ document.addEventListener("DOMContentLoaded", function() {
     zoom: 13
 	});
 
-	generateMarkers();
+	//generateMarkers();
 
-	getLocation();
+//	getLocation();
 
 });
 
-function generateMarkers(){
+/*function generateMarkers(){
 
 	$.ajax({
 		url: 'https://gps-metro.herokuapp.com/db/php/auten/estacoes.php',
@@ -59,7 +59,7 @@ function generateMarkers(){
 	});
 }
 
-/*function showDirection(startLat, startLong, endLat, endLong) {
+function showDirection(startLat, startLong, endLat, endLong) {
     map.remove();
 
 		map = L.map('leaflet2', {

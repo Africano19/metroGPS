@@ -13,7 +13,7 @@ function initMap() {
 }
 
 function greenLines(){
-  map.remove();
+  //map.remove();
 
   map = new google.maps.Map(document.getElementById("googleMap"), {
     center: { lat: -34.397, lng: 150.644 },

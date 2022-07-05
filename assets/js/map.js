@@ -1,20 +1,21 @@
+var map = document.getElementById('leaflet2');
+
 var myLocation;
 var homeLocation;
-let map, infoWindow;
 
-function initMap() {
-  map = new google.maps.Map(document.getElementById("googleMap"), {
-    center: { lat: -34.397, lng: 150.644 },
-    zoom: 13,
-  });
+document.addEventListener("DOMContentLoaded", function() {
 
-  generateMarkers();
-  infoWindow = new google.maps.InfoWindow();
-  getLocation();
+	map = L.map('leaflet2', {
+    layers: MQ.mapLayer(),
+    center: [38.736946, -9.142685],
+    zoom: 13
+	});
 
+	generateMarkers();
 
-}
+	getLocation();
 
+});
 
 function generateMarkers(){
 
@@ -25,52 +26,47 @@ function generateMarkers(){
 		success: function(data){
 
 			data.forEach((item) => {
-				let geo = JSON.parse(item.est_geometry);
-          
-          const contentString =
-                '<div id="content">' +
-                '<div id="siteNotice">' +
-                "</div>" +
-                '<h3 id="firstHeading" class="firstHeading" style="font-size: 15px;"><b>'+item.est_name+'<b/></h3>' +
-                '<div id="bodyContent">' +
-                '<p>'+item.est_line+'</p> </div>'+
-                "</div>";
+				let geo = JSON.parse(item.servpub_geometry);
 
-              const infowindow = new google.maps.InfoWindow({
-                content: contentString,
-              });
-              const markerSub = new google.maps.Marker({
-                position: { lat: geo.coordinates[1], lng: geo.coordinates[0]},
-                map,
-                title: item.est_name,
-                icon: {
-                  path: google.maps.SymbolPath.CIRCLE,
-                  strokeColor: "red",
-                  scale: 3
-                }
-              });
+					let mainDiv = document.createElement('div');
 
-              markerSub.addListener("click", () => {
-                infowindow.open({
-                  anchor: markerSub,
-                  map,
-                  shouldFocus: true,
-                });
-              });
+			    //AddTitle
+			    let title = document.createElement('p');
+			    title.innerHTML = item.est_name;
+			    mainDiv.appendChild(title);
 
+			    //AddButtonHome
+			    let homeButton = document.createElement('button');
+			    homeButton.innerHTML = "From Home";
+			    homeButton.addEventListener('click', () => {
+			        showDirectionFromHome(geo.coordinates[1],geo.coordinates[0]);
+			    });
+			    mainDiv.appendChild(homeButton);
+
+			    //AddButtonLoc
+			    let locButton = document.createElement('button');
+			    locButton.innerHTML = "From Location";
+			    locButton.addEventListener('click', () => {
+			        showDirection(myLocation.latitude,myLocation.longitude,geo.coordinates[1],geo.coordinates[0]);
+			    });
+			    mainDiv.appendChild(locButton);
+
+
+			    L.marker([geo.coordinates[1], geo.coordinates[0]]).bindPopup(mainDiv).addTo(map);
 			});
 
 		}
 	});
 }
-/*
-function showDirection(startLat, startLong, endLat, endLong) {
+
+/*function showDirection(startLat, startLong, endLat, endLong) {
     map.remove();
 
-		map = new google.maps.Map(document.getElementById("googleMap"), {
-      center: { lat: -34.397, lng: 150.644 },
-      zoom: 13,
-    });
+		map = L.map('leaflet2', {
+			layers: MQ.mapLayer(),
+			center: [38.736946, -9.142685],
+			zoom: 13
+		});
 
 
 		let mark = L.marker([myLocation.latitude, myLocation.longitude]).bindPopup("My Location").addTo(map);
@@ -92,11 +88,10 @@ function showDirection(startLat, startLong, endLat, endLong) {
     }));
 }
 
-
 function showDirectionFromHome(endLat, endLong) {
     map.remove();
 
-		map = L.map('googleMap', {
+		map = L.map('leaflet2', {
 			layers: MQ.mapLayer(),
 			center: [38.736946, -9.142685],
 			zoom: 13
@@ -121,67 +116,17 @@ function showDirectionFromHome(endLat, endLong) {
         fitBounds: true
     }));
 }
-
 */
-
 function getLocation() {
-  
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        const pos = {
-          lat: position.coords.latitude,
-          lng: position.coords.longitude,
-        };
-        map.setCenter(pos);
-
-              const contentString =
-                '<div id="content">' +
-                '<div id="siteNotice">' +
-                "</div>" +
-                '<h3 id="firstHeading" class="firstHeading">A Minha Localização.</h3>' +
-                '<div id="bodyContent">' +
-                "<p></p>" +
-                "</div>" +
-                "</div>";
-
-              const infowindow = new google.maps.InfoWindow({
-                content: contentString,
-              });
-
-              const marker = new google.maps.Marker({
-                position: pos,
-                map,
-                title: "A Minha Localização.",
-              });
-
-              marker.addListener("click", () => {
-                infowindow.open({
-                  anchor: marker,
-                  map,
-                  shouldFocus: false,
-                });
-              });
-      },
-      () => {
-        handleLocationError(true, infoWindow, map.getCenter());
-      }
-    );
+    navigator.geolocation.watchPosition(showPosition);
   } else {
-    handleLocationError(false, infoWindow, map.getCenter());
+    map.innerHTML = "Geolocation is not supported by this browser.";
   }
-
 }
 
-
-function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-  infoWindow.setPosition(pos);
-  infoWindow.setContent(
-    browserHasGeolocation
-      ? "Error: The Geolocation service failed."
-      : "Error: Your browser doesn't support geolocation."
-  );
-  infoWindow.open(map);
+function showPosition(position) {
+	let mark = L.marker([position.coords.latitude, position.coords.longitude]).bindPopup("My Location").addTo(map);
+	myLocation = position.coords;
+	mark._icon.classList.add("myLoc");
 }
-
-window.initMap = initMap;

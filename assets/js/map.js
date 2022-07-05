@@ -7,9 +7,9 @@ function initMap() {
     center: { lat: -34.397, lng: 150.644 },
     zoom: 13,
   });
-  getLocation();
-
   infoWindow = new google.maps.InfoWindow();
+  getLocation();
+  allLines()
 }
 
 function greenLines(){

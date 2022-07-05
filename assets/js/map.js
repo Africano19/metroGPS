@@ -7,8 +7,6 @@ function initMap() {
     center: { lat: -34.397, lng: 150.644 },
     zoom: 13,
   });
-
-  allLines();
   getLocation();
 
   infoWindow = new google.maps.InfoWindow();
@@ -131,6 +129,8 @@ function allLines(){
 		}
 	});
 }
+
+
 /*
 function showDirection(startLat, startLong, endLat, endLong) {
     map.remove();

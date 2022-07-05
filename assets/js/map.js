@@ -52,12 +52,8 @@ function generateMarkers(){
                 }
               });
 
-              markerSub.addListener("click", () => {
-                infowindow.open({
-                  anchor: markerSub,
-                  map,
-                  shouldFocus: false,
-                });
+              google.maps.event.addListener(marker, 'click', function() {
+                infowindow.open(map,markerSub);
               });
 
 			});
@@ -65,7 +61,7 @@ function generateMarkers(){
 		}
 	});
 }
-
+/*
 function showDirection(startLat, startLong, endLat, endLong) {
     map.remove();
 
@@ -94,7 +90,7 @@ function showDirection(startLat, startLong, endLat, endLong) {
     }));
 }
 
-/*
+
 function showDirectionFromHome(endLat, endLong) {
     map.remove();
 

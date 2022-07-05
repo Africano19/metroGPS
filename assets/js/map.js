@@ -124,8 +124,7 @@ $(document).ready(function() {
     });
   
     getLocation();
-    greenLinesAjax();
-
+    
   $.ajax({
 		url: 'https://gps-metro.herokuapp.com/db/php/auten/green.php',
 		type:"GET",

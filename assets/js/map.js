@@ -8,17 +8,85 @@ function initMap() {
     zoom: 13,
   });
 
-  generateMarkers();
-  infoWindow = new google.maps.InfoWindow();
+  allLines();
   getLocation();
+
+  infoWindow = new google.maps.InfoWindow();
+}
+
+function greenLines(){
+  map.remove();
+
+  map = new google.maps.Map(document.getElementById("googleMap"), {
+    center: { lat: -34.397, lng: 150.644 },
+    zoom: 13,
+  });
+
+  getLocation();
+
+  $.ajax({
+		url: 'https://gps-metro.herokuapp.com/db/php/auten/green.php',
+		type:"GET",
+		dataType: 'json',
+		success: function(data){
+
+			data.forEach((item) => {
+				let geo = JSON.parse(item.est_geometry);
+          
+          const contentString =
+                '<div id="content">' +
+                '<div id="siteNotice">' +
+                "</div>" +
+                '<h3 id="firstHeading" class="firstHeading" style="font-size: 15px;"><b>'+item.est_name+'<b/></h3>' +
+                '<div id="bodyContent">' +
+                '<p>'+item.est_line+'</p> </div>'+
+                "</div>";
+
+              const infowindow = new google.maps.InfoWindow({
+                content: contentString,
+              });
+              const markerSub = new google.maps.Marker({
+                position: { lat: geo.coordinates[1], lng: geo.coordinates[0]},
+                map,
+                title: item.est_name,
+                icon: {
+                  path: google.maps.SymbolPath.CIRCLE,
+                  strokeColor: "green",
+                  scale: 3
+                }
+              });
+
+              markerSub.addListener("click", () => {
+                infowindow.open({
+                  anchor: markerSub,
+                  map,
+                  shouldFocus: true,
+                });
+              });
+
+			});
+
+		}
+	});
+
 
 
 }
 
+function yellowLines(){
+  
+}
 
-function generateMarkers(){
+function blueLines(){
+  
+}
 
-	$.ajax({
+function redLines(){
+  
+}
+
+function allLines(){
+  $.ajax({
 		url: 'https://gps-metro.herokuapp.com/db/php/auten/estacoes.php',
 		type:"GET",
 		dataType: 'json',

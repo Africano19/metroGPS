@@ -11,7 +11,6 @@ function initMap() {
   getLocation();
   //allLines()
   //greenLines();
-  
 }
 
 

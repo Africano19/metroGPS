@@ -97,6 +97,18 @@ function allStations(){
                 scale: 3
               };
 
+              const markerSub = new google.maps.Marker({
+                position: { lat: geo.coordinates[1], lng: geo.coordinates[0]},
+                map,
+                title: item.est_name,
+                icon: square,
+                label: {
+                  text:"M",
+                  color: "white",
+                  fontWeight: "bold"
+                }
+              });
+
               markerSub.addListener("click", () => {
                 infowindow.open({
                   anchor: markerSub,
@@ -447,7 +459,7 @@ $(document).ready(function() {
                 icon: square,
                 label: {
                   text:"M",
-                  color: "black",
+                  color: "white",
                   fontWeight: "bold"
                 }
               });

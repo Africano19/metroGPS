@@ -79,6 +79,8 @@ function getLocation() {
 
 function calculateAndDisplayRoute(directionsService,directionsRenderer, status) {
   const end = document.getElementById("end").value;
+  console.log(end);
+  console.log(myLOcation);
   directionsService
     .route({
       origin: myLOcation,

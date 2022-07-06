@@ -37,12 +37,8 @@ function getLocation() {
           lat: position.coords.latitude,
           lng: position.coords.longitude,
         };
-        myLOcation = {
-          lat: position.coords.latitude,
-          lng: position.coords.longitude,
-        };
         map.setCenter(pos);
-         
+        myLOcation = pos;
               const contentString =
                 '<div id="content">' +
                 '<div id="siteNotice">' +
@@ -87,8 +83,8 @@ function calculateAndDisplayRoute(directionsService,directionsRenderer, status) 
   console.log(myLOcation);
   directionsService
     .route({
-      origin: { lat: myLOcation.coordinates[0], lng: myLOcation.coordinates[1]},
-      destination: end,
+      origin: myLOcation,
+      destination: { lat: end.coordinates[1], lng: end.coordinates[0]},
       travelMode: google.maps.TravelMode.DRIVING,
     })
     .then((response) => {

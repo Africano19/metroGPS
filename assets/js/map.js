@@ -16,8 +16,15 @@ function initMap() {
   infoWindow = new google.maps.InfoWindow();
   getLocation();
   allStations();
-  document.getElementById("end").addEventListener("change", onChangeHandler);
+ 
 }
+(document.getElementById("end")).addEventListener(
+  "change",
+  onChangeHandler
+);
+const onChangeHandler = function () {
+  calculateAndDisplayRoute();
+};
 
 
 

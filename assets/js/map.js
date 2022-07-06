@@ -92,11 +92,14 @@ function calculateAndDisplayRoute(directionsService,directionsRenderer, status) 
     })
     .then((response) => {
       console.log(response);
-
       directionsRenderer.setDirections(response);
     })
     .catch((e) => window.alert("Directions request failed due to " + status));
+    
 }
+
+window.initMap = initMap;
+export {};
 
 // Todas as estações
 function allStations(){

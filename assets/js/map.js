@@ -80,10 +80,8 @@ function getLocation() {
   }
 }
 
-function calculateAndDisplayRoute(directionsService,directionsRenderer, status) {
+function calculateAndDisplayRoute(directionsService,directionsRenderer) {
   let end = JSON.parse(document.getElementById("end").value);
-  console.log(end);
-  console.log(myLOcation);
   directionsService
     .route({
       origin: myLOcation,
@@ -93,7 +91,6 @@ function calculateAndDisplayRoute(directionsService,directionsRenderer, status) 
     .then((response) => {
       console.log(response);
       directionsRenderer.setDirections(response);
-      window.initMap = initMap;
     })
     .catch((e) => window.alert("Directions request failed due to " + status));
     

@@ -151,10 +151,10 @@ $(document).ready(function() {
                 position: { lat: geo.coordinates[1], lng: geo.coordinates[0]},
                 map,
                 title: item.est_name,
-                icon: {
-                  path: google.maps.SymbolPath.CIRCLE,
-                  strokeColor: "green",
-                  scale: 3
+                icon: square,
+                label: {
+                  text:"M",
+                  fontWeight: "bold"
                 }
               });
 

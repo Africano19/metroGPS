@@ -297,6 +297,14 @@ $(document).ready(function() {
                 content: contentString,
               });
 
+              var square = {
+                path: 'M -2,-2 2,-2 2,2 -2,2 z', // 'M -2,0 0,-2 2,0 0,2 z',
+                strokeColor: '#F00',
+                fillColor: '#F00',
+                fillOpacity: 1,
+                scale: 3
+              };
+
               const markerSub = new google.maps.Marker({
                 position: { lat: geo.coordinates[1], lng: geo.coordinates[0]},
                 map,
@@ -433,6 +441,14 @@ $(document).ready(function() {
               const infowindow = new google.maps.InfoWindow({
                 content: contentString,
               });
+
+              var square = {
+                path: 'M -2,-2 2,-2 2,2 -2,2 z', // 'M -2,0 0,-2 2,0 0,2 z',
+                strokeColor: '#F00',
+                fillColor: '#F00',
+                fillOpacity: 1,
+                scale: 3
+              };
 
               const markerSub = new google.maps.Marker({
                 position: { lat: geo.coordinates[1], lng: geo.coordinates[0]},

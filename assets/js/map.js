@@ -2,8 +2,6 @@
 var myLocation;
 var homeLocation;
 let map, infoWindow;
-var directionsDisplay = new google.maps.DirectionsRenderer();
-var directionsService = new google.maps.DirectionsService();
 
 function initMap() {
   map = new google.maps.Map(document.getElementById("googleMap"), {
@@ -488,6 +486,8 @@ $(document).ready(function() {
 
 
 function calcRoute(startRoute, endRoute){
+  var directionsDisplay = new google.maps.DirectionsRenderer();
+  var directionsService = new google.maps.DirectionsService();
 
   var request = {
     origin: startRoute,

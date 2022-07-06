@@ -33,7 +33,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
   margin: 4px 2px;
   cursor: pointer;
 }
-.button2 {background-color: #FFFF00;} /* Yellow */
+.button2 {background-color: #FFFF00; color: black; } /* Yellow */
 .button3 {background-color: #0000FF;} /* Blue */ 
 .button4 {background-color: #ff0000;} /* Red */
 .button5 {background-color: #e7e7e7; color: black;} /* Gray */ 

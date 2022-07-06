@@ -2,6 +2,8 @@
 var myLocation;
 var homeLocation;
 let map, infoWindow;
+var directionsDisplay = new google.maps.DirectionsRenderer();
+var directionsService = new google.maps.DirectionsService();
 
 function initMap() {
   map = new google.maps.Map(document.getElementById("googleMap"), {
@@ -11,7 +13,6 @@ function initMap() {
   infoWindow = new google.maps.InfoWindow();
   getLocation();
   allStations();
-  calculateRouteFromAtoB();
 
 }
 
@@ -123,29 +124,6 @@ function allStations(){
 		}
 	});
 }
-
-
-function calculateRouteFromAtoB() {
-  var router = google.getRoutingService(null, 8),
-      routeRequestParams = {
-        routingMode: 'fast',
-        transportMode: 'car',
-        origin: {
-          lat: position.coords.latitude,
-          lng: position.coords.longitude,
-        },
-        destination: '52.5206,13.3862', // Friedrichstraße Railway Station
-        return: 'polyline,turnByTurnActions,actions,instructions,travelSummary'
-      };
-
-  router.calculateRoute(
-    routeRequestParams,
-    onSuccess,
-    onError
-  );
-}
-
-
 
 
 
@@ -445,7 +423,7 @@ $(document).ready(function() {
       zoom: 12,
     });
   
-    getLocation();
+    var myLoc = getLocation();
     
   $.ajax({
 		url: 'https://gps-metro.herokuapp.com/db/php/auten/estacoes.php',
@@ -462,7 +440,9 @@ $(document).ready(function() {
                 "</div>" +
                 '<h3 id="firstHeading" class="firstHeading" style="font-size: 15px;"><b>'+item.est_name+'<b/></h3>' +
                 '<div id="bodyContent">' +
-                '<p>'+item.est_line+'</p> </div>'+
+                '<p>'+item.est_line+'</p>'+
+                +'<button type="button" onclick='+calcRoute(myLoc, item.est_geometry);+'>Distancia</button>'+
+                +' </div>'+
                 "</div>";
 
               const infowindow = new google.maps.InfoWindow({
@@ -504,6 +484,29 @@ $(document).ready(function() {
 	  });
   });
 });
+
+
+
+function calcRoute(startRoute, endRoute){
+
+  var request = {
+    origin: startRoute,
+    destination: endRoute,
+    travelMode: google.maps.travelMode.WALKING,
+    unitSystem: google.maps.unitSystem.METRIC
+  }
+
+  directionsService.route(request,(result, status) => {
+    if(status == google.maps.DirectionsStatus.Ok) {
+      
+      //const output = document.querySelector('#output');
+      directionsDisplay.setDirections(result);
+    }else{
+      directionsDisplay.setDirections({routes:[]});
+      map.setCenter({ lat: -34.397, lng: 150.644 });
+    }
+  });
+}
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.setPosition(pos);

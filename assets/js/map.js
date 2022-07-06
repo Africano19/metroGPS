@@ -439,7 +439,7 @@ $(document).ready(function() {
           '<h3 id="firstHeading" class="firstHeading" style="font-size: 15px;"><b>'+item.est_name+'<b/></h3>' +
           '<div id="bodyContent">' +
           '<p>'+item.est_line+'</p>'+
-          '<button type="button" onclick="'+calcRoute(myLoc, geo);+'">Click Me!</button>'+
+          '<button type="button" onclick="'+calcRoute(myLoc, geo)+'">Click Me!</button>'+
           '</div>'+
           "</div>";
 
@@ -492,8 +492,8 @@ function calcRoute(startRoute, endRoute){
   var request = {
     origin: startRoute,
     destination: endRoute,
-    travelMode: google.maps.travelMode.WALKING,
-    unitSystem: google.maps.unitSystem.METRIC
+    travelMode: google.maps.TravelMode.WALKING,
+    unitSystem: google.maps.UnitSystem.METRIC
   }
 
   directionsService.route(request,(result, status) => {

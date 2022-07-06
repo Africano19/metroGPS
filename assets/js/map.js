@@ -293,15 +293,24 @@ $(document).ready(function() {
               const infowindow = new google.maps.InfoWindow({
                 content: contentString,
               });
+
               const markerSub = new google.maps.Marker({
                 position: { lat: geo.coordinates[1], lng: geo.coordinates[0]},
                 map,
                 title: item.est_name,
-                icon: {
-                  path: google.maps.SymbolPath.CIRCLE,
-                  strokeColor: "red",
-                  scale: 3
+                icon: square,
+                label: {
+                  text:"M",
+                  fontWeight: "bold"
                 }
+              });
+
+              markerSub.addListener("click", () => {
+                infowindow.open({
+                  anchor: markerSub,
+                  map,
+                  shouldFocus: true,
+                });
               });
 
               markerSub.addListener("click", () => {
@@ -421,14 +430,6 @@ $(document).ready(function() {
                 content: contentString,
               });
 
-              var square = {
-                path: 'M -2,-2 2,-2 2,2 -2,2 z', // 'M -2,0 0,-2 2,0 0,2 z',
-                strokeColor: '#0000FF',
-                fillColor: '#0000FF',
-                fillOpacity: 1,
-                scale: 3
-              };
-
               const markerSub = new google.maps.Marker({
                 position: { lat: geo.coordinates[1], lng: geo.coordinates[0]},
                 map,
@@ -438,6 +439,14 @@ $(document).ready(function() {
                   text:"M",
                   fontWeight: "bold"
                 }
+              });
+
+              markerSub.addListener("click", () => {
+                infowindow.open({
+                  anchor: markerSub,
+                  map,
+                  shouldFocus: true,
+                });
               });
 
 

@@ -16,7 +16,7 @@ function initMap() {
   infoWindow = new google.maps.InfoWindow();
   getLocation();
   allStations();
-  document.getElementById("location2").addEventListener("change", onChangeHandler);
+  document.getElementById("end").addEventListener("change", onChangeHandler);
 }
 
 

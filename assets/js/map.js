@@ -78,12 +78,11 @@ function getLocation() {
 }
 
 function calculateAndDisplayRoute(directionsService,directionsRenderer, status) {
+  const end = document.getElementById("end").value;
   directionsService
     .route({
       origin: myLOcation,
-      destination: {
-        query: (document.getElementById("end")).value,
-      },
+      destination: end,
       travelMode: google.maps.TravelMode.DRIVING,
     })
     .then((response) => {

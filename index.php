@@ -93,6 +93,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
                                         }
                                   ?>        
       </select>
+      <br/>
     </div>
     <div class="w3-bar">
       <button class="w3-bar-item w3-button button2" id="yellowLine" value="yellowLine" style="width:33.3%;">Linha Amarela</button>

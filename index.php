@@ -63,7 +63,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
     <button type="button" id="greenLine" value="greenLine">Linha Verde</button>
     <button type="button" id="yellowLine" value="yellowLine">Linha Amarela</button>
     <button type="button" id="blueLine" value="blueLine">Linha Azul</button>
-    <button type="button" id="redLine" value="redLine">Linha Vermelho</button>
+    <button type="button" id="redLine" value="redLine">Linha Vermelha</button>
     <button type="button" id="allLines" value="allLines">Todas as Linhas</button>    
     <div id="googleMap" style="width:100%;height:600px;"></div>
   

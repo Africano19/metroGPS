@@ -61,7 +61,7 @@ function getLocation() {
   } else {
     handleLocationError(false, infoWindow, map.getCenter());
   }
-
+  return pos;
 }
 
 // Todas as estações
@@ -490,8 +490,8 @@ function calcRoute(startRoute, endRoute){
   var directionsService = new google.maps.DirectionsService();
 
   var request = {
-    origin:  parseFloat(startRoute),
-    destination:  parseFloat(endRoute),
+    origin:  startRoute,
+    destination:  endRoute,
     travelMode: google.maps.TravelMode.WALKING,
     unitSystem: google.maps.UnitSystem.METRIC
   }

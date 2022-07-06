@@ -16,13 +16,18 @@ function initMap() {
   infoWindow = new google.maps.InfoWindow();
   getLocation();
   allStations();
+
+  const onChangeHandler = function () {
+    calculateAndDisplayRoute(directionsService, directionsRenderer);
+  };
+  (document.getElementById("end")).addEventListener(
+    "change",
+    onChangeHandler
+  );
 }
 
-const onChangeHandler = function() {
-  console.log("onChangeHandler");
-  calculateAndDisplayRoute(directionsService, directionsRenderer);
-};
-document.getElementById("end").addEventListener("change", onChangeHandler);
+
+
 
 
 //A MINHA LOCALIZAÇÃO
@@ -79,12 +84,11 @@ function calculateAndDisplayRoute(directionsService,directionsRenderer, status) 
   let end = JSON.parse(document.getElementById("end").value);
   console.log(end);
   console.log(myLOcation);
-  
   directionsService
     .route({
       origin: myLOcation,
       destination: { lat: end.coordinates[1], lng: end.coordinates[0]},
-      travelMode: google.maps.DirectionsTravelMode.DRIVING,
+      travelMode: google.maps.TravelMode.DRIVING,
     })
     .then((response) => {
       console.log(response);

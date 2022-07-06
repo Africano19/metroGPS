@@ -53,6 +53,7 @@ function getLocation() {
                   shouldFocus: false,
                 });
               });
+        return pos;
       },
       () => {
         handleLocationError(true, infoWindow, map.getCenter());
@@ -419,8 +420,8 @@ $(document).ready(function() {
       center: { lat: -34.397, lng: 150.644 },
       zoom: 12,
     });
-    
-    getLocation();
+  
+    var myLoc = getLocation();
     
   $.ajax({
 		url: 'https://gps-metro.herokuapp.com/db/php/auten/estacoes.php',
@@ -438,7 +439,7 @@ $(document).ready(function() {
           '<h3 id="firstHeading" class="firstHeading" style="font-size: 15px;"><b>'+item.est_name+'<b/></h3>' +
           '<div id="bodyContent">' +
           '<p>'+item.est_line+'</p>'+
-          '<button type="button" onclick="'+calcRoute(geo)+'">Click Me!</button>'+
+          '<button type="button" onclick="'+calcRoute(myLoc, geo)+'">Click Me!</button>'+
           '</div>'+
           "</div>";
 
@@ -484,24 +485,12 @@ $(document).ready(function() {
 
 
 
-function calcRoute(endRoute){
+function calcRoute(startRoute, endRoute){
   var directionsDisplay = new google.maps.DirectionsRenderer();
   var directionsService = new google.maps.DirectionsService();
 
-  navigator.geolocation.getCurrentPosition(
-    (position) => {
-      const pos = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude,
-      };
-    },
-    () => {
-      handleLocationError(true, infoWindow, map.getCenter());
-    }
-  );
-
   var request = {
-    origin:  pos,
+    origin:  startRoute,
     destination:  endRoute,
     travelMode: google.maps.TravelMode.WALKING,
     unitSystem: google.maps.UnitSystem.METRIC

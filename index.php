@@ -21,23 +21,12 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 .w3-sidebar {width: 120px;background: #222;}
 #main {margin-left: 120px}
 @media only screen and (max-width: 600px) {#main {margin-left: 0}}
-.button {
-  background-color: #4CAF50; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 5px 10px;
-  display: block;
-  cursor: pointer;
-}
+.button  {background-color: #4CAF50; /* Green */}
 .button2 {background-color: #FFFF00; color: black; } /* Yellow */
 .button3 {background-color: #0000FF;} /* Blue */ 
 .button4 {background-color: #ff0000;} /* Red */
 .button5 {background-color: #e7e7e7; color: black;} /* Gray */ 
+
 
 </style>
 </head>
@@ -78,12 +67,12 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
   <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="estacoes">
     <h2 class="w3-text-light-grey">Estações</h2>
     <hr style="width:200px" class="w3-opacity">
-    <div style="width: 100%;">
-    <button type="button" id="greenLine" value="greenLine" class="button">Linha Verde</button>
-    <button type="button" id="yellowLine" value="yellowLine" class="button button2" >Linha Amarela</button>
-    <button type="button" id="blueLine" value="blueLine" class="button button3" >Linha Azul</button>
-    <button type="button" id="redLine" value="redLine" class="button button4" >Linha Vermelha</button>
-    <button type="button" id="allLines" value="allLines" class="button button5">Todas as Linhas</button>    
+    <div class="w3-bar">
+      <button class="w3-bar-item w3-button button5" id="allLines" style="width:33.3%;">Todas as Linhas</button>
+      <button class="w3-bar-item w3-button button2" id="yellowLine" value="yellowLine" style="width:33.3%;">Linha Amarela</button>
+      <button class="w3-bar-item w3-button button3" id="blueLine" value="blueLine" style="width:33.3%; ">Linha Azul</button>
+      <button class="w3-bar-item w3-button button4" id="redLine" value="redLine" value="redLine" style="width:33.3%;">Linha Vermelha</button>
+      <button class="w3-bar-item w3-button button" id="greenLine" value="greenLine" style="width:33.3%; ">Linha Verde</button>  
     </div>
     <div id="googleMap" style="width:100%;height:600px;"></div>
   

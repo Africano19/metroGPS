@@ -37,8 +37,12 @@ function getLocation() {
           lat: position.coords.latitude,
           lng: position.coords.longitude,
         };
+        myLOcation = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+        };
         map.setCenter(pos);
-        myLOcation = pos;
+         
               const contentString =
                 '<div id="content">' +
                 '<div id="siteNotice">' +

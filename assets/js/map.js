@@ -12,7 +12,6 @@ function initMap() {
   infoWindow = new google.maps.InfoWindow();
   getLocation();
   allStations();
-  calcRoute();
 
 }
 
@@ -441,7 +440,7 @@ $(document).ready(function() {
           '<h3 id="firstHeading" class="firstHeading" style="font-size: 15px;"><b>'+item.est_name+'<b/></h3>' +
           '<div id="bodyContent">' +
           '<p>'+item.est_line+'</p>'+
-          //'<button type="button" onclick="'+calcRoute(item.est_geometry)+'">Click Me!</button>'+
+          '<button type="button" onclick="'+calcRoute(item.est_geometry)+'">Click Me!</button>'+
           '</div>'+
           "</div>";
 
@@ -487,13 +486,13 @@ $(document).ready(function() {
 
 
 
-function calcRoute(){
+function calcRoute(endRoute){
   var directionsDisplay = new google.maps.DirectionsRenderer();
   var directionsService = new google.maps.DirectionsService();
 
   var request = {
     origin:  myLOcation,
-    destination:  { lat: -9.14609167401547, lng: 38.7062703226346},
+    destination:  endRoute,
     travelMode: google.maps.TravelMode.WALKING,
     unitSystem: google.maps.UnitSystem.METRIC
   }

@@ -16,13 +16,9 @@ function initMap() {
   infoWindow = new google.maps.InfoWindow();
   getLocation();
   allStations();
+  document.getElementById("location2").addEventListener("change", onChangeHandler);
 }
 
-const onChangeHandler = function() {
-  console.log("onChangeHandler");
-  calculateAndDisplayRoute(directionsService, directionsRenderer);
-};
-document.getElementById("location2").addEventListener("change", onChangeHandler);
 
 
 //A MINHA LOCALIZAÇÃO
@@ -75,22 +71,21 @@ function getLocation() {
   }
 }
 
-function calculateAndDisplayRoute(directionsService,directionsRenderer, status) {
+function calculateAndDisplayRoute() {
   let end = JSON.parse(document.getElementById("end").value);
   console.log(end);
   console.log(myLOcation);
-  directionsService
-    .route({
-      origin: myLOcation,
-      destination: { lat: end.coordinates[1], lng: end.coordinates[0]},
-      travelMode: google.maps.TravelMode.DRIVING,
-    })
-    .then((response) => {
-      console.log(response);
-
-      directionsRenderer.setDirections(response);
-    })
-    .catch((e) => window.alert("Directions request failed due to " + status));
+  var request = {
+    origin: myLOcation,
+    destination: { lat: end.coordinates[1], lng: end.coordinates[0]},
+    travelMode: google.maps.DirectionsTravelMode.DRIVING
+  };
+  directionsService.route(request, function(response, status) {
+    if (status == google.maps.DirectionsStatus.OK) {
+      directionsDisplay.setDirections(response);
+      var route = response.routes[0];
+    }
+  });
 }
 
 // Todas as estações

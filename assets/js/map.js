@@ -490,8 +490,8 @@ function calcRoute(startRoute, endRoute){
   var directionsService = new google.maps.DirectionsService();
 
   var request = {
-    origin:  { lat: startRoute.coordinates[1], lng: startRoute.coordinates[0] },
-    destination: { lat: endRoute.coordinates[1], lng: endRoute.coordinates[0] },
+    origin:  parseFloat(startRoute),
+    destination:  parseFloat(endRoute),
     travelMode: google.maps.TravelMode.WALKING,
     unitSystem: google.maps.UnitSystem.METRIC
   }

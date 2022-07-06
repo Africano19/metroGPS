@@ -76,7 +76,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
     <hr style="width:200px;" class="w3-opacity">
     <div class ="calculateRoute">
       <h3 style="color:white; text-align:center;">Calcule a Rota até a Estação Pretendida</h3>
-      <hr style="border: 2px solid white; width:20px;">
+      <hr style="border: 2px solid white; width: 50%; margin: 0 25% 0 25%; ">
       <br/>
 
     </div>

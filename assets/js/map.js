@@ -93,6 +93,7 @@ function calculateAndDisplayRoute(directionsService,directionsRenderer, status) 
     .then((response) => {
       console.log(response);
       directionsRenderer.setDirections(response);
+      window.initMap = initMap;
     })
     .catch((e) => window.alert("Directions request failed due to " + status));
     

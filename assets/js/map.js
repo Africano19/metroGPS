@@ -2,7 +2,6 @@
 var myLocation;
 var homeLocation;
 let map, infoWindow;
-var myLOcation;
 
 function initMap() {
   const directionsService = new google.maps.DirectionsService();
@@ -38,7 +37,7 @@ function getLocation() {
           lng: position.coords.longitude,
         };
         map.setCenter(pos);
-        myLOcation = pos;
+        const myLOcation = pos;
               const contentString =
                 '<div id="content">' +
                 '<div id="siteNotice">' +
@@ -83,7 +82,7 @@ function calculateAndDisplayRoute(directionsService,directionsRenderer, status) 
   console.log(myLOcation);
   directionsService
     .route({
-      origin: myLOcation,
+      origin: myLocation,
       destination: end,
       travelMode: google.maps.TravelMode.DRIVING,
     })

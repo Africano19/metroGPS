@@ -444,10 +444,6 @@ $(document).ready(function() {
           '</div>'+
           "</div>";
 
-          document.getElementById("gps").onclick = function() {
-            calcRoute(item.est_geometry);
-        };
-
         
               const infowindow = new google.maps.InfoWindow({
                 content: contentString,
@@ -474,6 +470,9 @@ $(document).ready(function() {
                 }
               });
 
+              document.getElementById("gps").onclick = function() {
+                calcRoute(item.est_geometry);
+              };
 
               markerSub.addListener("click", () => {
                 infowindow.open({

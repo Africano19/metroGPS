@@ -30,6 +30,9 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 .calculateRoute{
   text-align: center;
   border: 3px solid white;
+  margin: 10px;
+  border-radius: 25px;
+
 }
 
 </style>

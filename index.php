@@ -21,6 +21,23 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 .w3-sidebar {width: 120px;background: #222;}
 #main {margin-left: 120px}
 @media only screen and (max-width: 600px) {#main {margin-left: 0}}
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.button2 {background-color: #FFFF00;} /* Yellow */
+.button3 {background-color: #0000FF;} /* Blue */ 
+.button4 {background-color: #ff0000;} /* Red */
+.button5 {background-color: #e7e7e7; color: black;} /* Gray */ 
+
 </style>
 </head>
 <body class="w3-black">
@@ -60,11 +77,11 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
   <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="estacoes">
     <h2 class="w3-text-light-grey">Estações</h2>
     <hr style="width:200px" class="w3-opacity">
-    <button type="button" id="greenLine" value="greenLine">Linha Verde</button>
-    <button type="button" id="yellowLine" value="yellowLine">Linha Amarela</button>
-    <button type="button" id="blueLine" value="blueLine">Linha Azul</button>
-    <button type="button" id="redLine" value="redLine">Linha Vermelha</button>
-    <button type="button" id="allLines" value="allLines">Todas as Linhas</button>    
+    <button type="button" id="greenLine" value="greenLine" class="button">Linha Verde</button>
+    <button type="button" id="yellowLine" value="yellowLine" class="button button2" >Linha Amarela</button>
+    <button type="button" id="blueLine" value="blueLine" class="button button3" >Linha Azul</button>
+    <button type="button" id="redLine" value="redLine" class="button button4" >Linha Vermelha</button>
+    <button type="button" id="allLines" value="allLines" class="button button5">Todas as Linhas</button>    
     <div id="googleMap" style="width:100%;height:600px;"></div>
   
   <!-- End Contact Section -->

@@ -6,7 +6,7 @@ let map, infoWindow;
 function initMap() {
   map = new google.maps.Map(document.getElementById("googleMap"), {
     center: { lat: -34.397, lng: 150.644 },
-    zoom: 10,
+    zoom: 12,
   });
   infoWindow = new google.maps.InfoWindow();
   getLocation();
@@ -120,7 +120,7 @@ $(document).ready(function() {
 
     map = new google.maps.Map(document.getElementById("googleMap"), {
       center: { lat: -34.397, lng: 150.644 },
-      zoom: 10,
+      zoom: 12,
     });
   
     getLocation();
@@ -179,7 +179,7 @@ $(document).ready(function() {
 
     map = new google.maps.Map(document.getElementById("googleMap"), {
       center: { lat: -34.397, lng: 150.644 },
-      zoom: 10,
+      zoom: 12,
     });
   
     getLocation();
@@ -238,7 +238,7 @@ $(document).ready(function() {
 
     map = new google.maps.Map(document.getElementById("googleMap"), {
       center: { lat: -34.397, lng: 150.644 },
-      zoom: 10,
+      zoom: 12,
     });
   
     getLocation();
@@ -297,7 +297,7 @@ $(document).ready(function() {
 
     map = new google.maps.Map(document.getElementById("googleMap"), {
       center: { lat: -34.397, lng: 150.644 },
-      zoom: 10,
+      zoom: 12,
     });
   
     getLocation();
@@ -356,7 +356,7 @@ $(document).ready(function() {
 
     map = new google.maps.Map(document.getElementById("googleMap"), {
       center: { lat: -34.397, lng: 150.644 },
-      zoom: 10,
+      zoom: 12,
     });
   
     getLocation();

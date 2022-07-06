@@ -11,21 +11,19 @@ function initMap() {
   map = new google.maps.Map(document.getElementById("googleMap"), {
     center: { lat: -34.397, lng: 150.644 },
     zoom: 12,
+    disableDefaultUI: true,
   });
   infoWindow = new google.maps.InfoWindow();
   getLocation();
   allStations();
-
-  const onChangeHandler = function () {
-    calculateAndDisplayRoute(directionsService, directionsRenderer);
-  };
-
-  (document.getElementById("end")).addEventListener(
-    "change",
-    onChangeHandler
-  );
-
 }
+
+const onChangeHandler = function() {
+  console.log("onChangeHandler");
+  calculateAndDisplayRoute(directionsService, directionsRenderer);
+};
+document.getElementById("location2").addEventListener("change", onChangeHandler);
+
 
 //A MINHA LOCALIZAÇÃO
 function getLocation() {
@@ -88,6 +86,8 @@ function calculateAndDisplayRoute(directionsService,directionsRenderer, status) 
       travelMode: google.maps.TravelMode.DRIVING,
     })
     .then((response) => {
+      console.log(response);
+
       directionsRenderer.setDirections(response);
     })
     .catch((e) => window.alert("Directions request failed due to " + status));

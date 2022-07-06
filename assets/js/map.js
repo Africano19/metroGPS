@@ -440,7 +440,7 @@ $(document).ready(function() {
           '<h3 id="firstHeading" class="firstHeading" style="font-size: 15px;"><b>'+item.est_name+'<b/></h3>' +
           '<div id="bodyContent">' +
           '<p>'+item.est_line+'</p>'+
-          '<button type="button" onclick="'+calcRoute(geo)+'">Click Me!</button>'+
+          '<button type="button" onclick="'+calcRoute(item.est_geometry)+'">Click Me!</button>'+
           '</div>'+
           "</div>";
 

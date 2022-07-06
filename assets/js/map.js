@@ -90,23 +90,18 @@ function allStations(){
 
               var square = {
                 path: 'M -2,-2 2,-2 2,2 -2,2 z', // 'M -2,0 0,-2 2,0 0,2 z',
-                strokeColor: '#e7e7e7',
-                fillColor: '#e7e7e7',
+                strokeColor: '#F00',
+                fillColor: '#F00',
                 fillOpacity: 1,
                 scale: 3
               };
-
-              const markerSub = new google.maps.Marker({
-                position: { lat: geo.coordinates[1], lng: geo.coordinates[0]},
-                map,
-                title: item.est_name,
-                icon: square,
-                label: {
-                  text:"M",
-                  color: "black",
-                  fontWeight: "bold"
-                }
-              });
+              var square = {
+                path: 'M -2,-2 2,-2 2,2 -2,2 z', // 'M -2,0 0,-2 2,0 0,2 z',
+                strokeColor: '#3B3B3B',
+                fillColor: '#3B3B3B',
+                fillOpacity: 1,
+                scale: 3
+              };
 
               markerSub.addListener("click", () => {
                 infowindow.open({
@@ -451,8 +446,8 @@ $(document).ready(function() {
               };
               var square = {
                 path: 'M -2,-2 2,-2 2,2 -2,2 z', // 'M -2,0 0,-2 2,0 0,2 z',
-                strokeColor: '#e7e7e7',
-                fillColor: '#e7e7e7',
+                strokeColor: '#3B3B3B',
+                fillColor: '#3B3B3B',
                 fillOpacity: 1,
                 scale: 3
               };

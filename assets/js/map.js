@@ -296,9 +296,10 @@ $(document).ready(function() {
     //map.remove();
 
     map = new google.maps.Map(document.getElementById("googleMap"), {
-      center: { lat: -34.397, lng: 150.644 },
       zoom: 13,
-    });
+      center: new google.maps.LatLng(38.72384851356916, -9.13976967664897),
+      mapTypeId: "terrain",
+  });
   
     getLocation();
     

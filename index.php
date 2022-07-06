@@ -21,10 +21,10 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 .w3-sidebar {width: 120px;background: #222;}
 #main {margin-left: 120px}
 @media only screen and (max-width: 600px) {#main {margin-left: 0}}
-.button  {background-color: #4CAF50; /* Green */}
-.button2 {background-color: #FFFF00; color: black; } /* Yellow */
-.button3 {background-color: #0000FF;} /* Blue */ 
-.button4 {background-color: #ff0000;} /* Red */
+.button  {background-color: #4CAF50; color: white;/* Green */}
+.button2 {background-color: #FFFF00; color: black;} /* Yellow */
+.button3 {background-color: #0000FF; color: white;} /* Blue */ 
+.button4 {background-color: #ff0000; color: white;} /* Red */
 .button5 {background-color: #e7e7e7; color: black;} /* Gray */ 
 
 

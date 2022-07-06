@@ -104,6 +104,7 @@ function allStations(){
                 icon: square,
                 label: {
                   text:"M",
+                  color: "white",
                   fontWeight: "bold"
                 }
               });
@@ -172,6 +173,7 @@ $(document).ready(function() {
                 icon: square,
                 label: {
                   text:"M",
+                  color: "white",
                   fontWeight: "bold"
                 }
               });
@@ -241,6 +243,7 @@ $(document).ready(function() {
                 icon: square,
                 label: {
                   text:"M",
+                  color: "white",
                   fontWeight: "bold"
                 }
               });
@@ -301,6 +304,7 @@ $(document).ready(function() {
                 icon: square,
                 label: {
                   text:"M",
+                  color: "white",
                   fontWeight: "bold"
                 }
               });
@@ -437,6 +441,7 @@ $(document).ready(function() {
                 icon: square,
                 label: {
                   text:"M",
+                  color: "white",
                   fontWeight: "bold"
                 }
               });

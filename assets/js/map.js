@@ -98,8 +98,7 @@ function calculateAndDisplayRoute(directionsService,directionsRenderer, status) 
     
 }
 
-window.initMap = initMap;
-export {};
+
 
 // Todas as estações
 function allStations(){

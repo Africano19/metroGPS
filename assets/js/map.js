@@ -6,7 +6,7 @@ let map, infoWindow;
 function initMap() {
   map = new google.maps.Map(document.getElementById("googleMap"), {
     center: { lat: -34.397, lng: 150.644 },
-    zoom: 13,
+    zoom: 10,
   });
   infoWindow = new google.maps.InfoWindow();
   getLocation();
@@ -120,7 +120,7 @@ $(document).ready(function() {
 
     map = new google.maps.Map(document.getElementById("googleMap"), {
       center: { lat: -34.397, lng: 150.644 },
-      zoom: 13,
+      zoom: 10,
     });
   
     getLocation();
@@ -179,7 +179,7 @@ $(document).ready(function() {
 
     map = new google.maps.Map(document.getElementById("googleMap"), {
       center: { lat: -34.397, lng: 150.644 },
-      zoom: 13,
+      zoom: 10,
     });
   
     getLocation();
@@ -238,7 +238,7 @@ $(document).ready(function() {
 
     map = new google.maps.Map(document.getElementById("googleMap"), {
       center: { lat: -34.397, lng: 150.644 },
-      zoom: 13,
+      zoom: 10,
     });
   
     getLocation();
@@ -296,10 +296,9 @@ $(document).ready(function() {
     //map.remove();
 
     map = new google.maps.Map(document.getElementById("googleMap"), {
-      zoom: 13,
-      center: new google.maps.LatLng(38.72384851356916, -9.13976967664897),
-      mapTypeId: "terrain",
-  });
+      center: { lat: -34.397, lng: 150.644 },
+      zoom: 10,
+    });
   
     getLocation();
     
@@ -357,7 +356,7 @@ $(document).ready(function() {
 
     map = new google.maps.Map(document.getElementById("googleMap"), {
       center: { lat: -34.397, lng: 150.644 },
-      zoom: 13,
+      zoom: 10,
     });
   
     getLocation();

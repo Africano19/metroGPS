@@ -90,8 +90,8 @@ function allStations(){
 
               var square = {
                 path: 'M -2,-2 2,-2 2,2 -2,2 z', // 'M -2,0 0,-2 2,0 0,2 z',
-                strokeColor: '#F00',
-                fillColor: '#F00',
+                strokeColor: '#e7e7e7',
+                fillColor: '#e7e7e7',
                 fillOpacity: 1,
                 scale: 3
               };
@@ -103,7 +103,7 @@ function allStations(){
                 icon: square,
                 label: {
                   text:"M",
-                  color: "white",
+                  color: "black",
                   fontWeight: "bold"
                 }
               });
@@ -303,6 +303,7 @@ $(document).ready(function() {
                 fillOpacity: 1,
                 scale: 3
               };
+              
 
               const markerSub = new google.maps.Marker({
                 position: { lat: geo.coordinates[1], lng: geo.coordinates[0]},
@@ -448,6 +449,13 @@ $(document).ready(function() {
                 fillOpacity: 1,
                 scale: 3
               };
+              var square = {
+                path: 'M -2,-2 2,-2 2,2 -2,2 z', // 'M -2,0 0,-2 2,0 0,2 z',
+                strokeColor: '#e7e7e7',
+                fillColor: '#e7e7e7',
+                fillOpacity: 1,
+                scale: 3
+              };
 
               const markerSub = new google.maps.Marker({
                 position: { lat: geo.coordinates[1], lng: geo.coordinates[0]},
@@ -456,17 +464,9 @@ $(document).ready(function() {
                 icon: square,
                 label: {
                   text:"M",
-                  color: "white",
+                  color: "black",
                   fontWeight: "bold"
                 }
-              });
-
-              markerSub.addListener("click", () => {
-                infowindow.open({
-                  anchor: markerSub,
-                  map,
-                  shouldFocus: true,
-                });
               });
 
 

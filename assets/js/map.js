@@ -2,6 +2,7 @@
 var myLocation;
 var homeLocation;
 let map, infoWindow;
+var myLOcation;
 
 function initMap() {
   map = new google.maps.Map(document.getElementById("googleMap"), {
@@ -25,7 +26,7 @@ function getLocation() {
           lng: position.coords.longitude,
         };
         map.setCenter(pos);
-
+        myLOcation = pos;
               const contentString =
                 '<div id="content">' +
                 '<div id="siteNotice">' +
@@ -53,7 +54,7 @@ function getLocation() {
                   shouldFocus: false,
                 });
               });
-        return pos;
+        
       },
       () => {
         handleLocationError(true, infoWindow, map.getCenter());
@@ -421,7 +422,7 @@ $(document).ready(function() {
       zoom: 12,
     });
   
-    var myLoc = getLocation();
+    getLocation();
     
   $.ajax({
 		url: 'https://gps-metro.herokuapp.com/db/php/auten/estacoes.php',
@@ -439,7 +440,7 @@ $(document).ready(function() {
           '<h3 id="firstHeading" class="firstHeading" style="font-size: 15px;"><b>'+item.est_name+'<b/></h3>' +
           '<div id="bodyContent">' +
           '<p>'+item.est_line+'</p>'+
-          '<button type="button" onclick="'+calcRoute(myLoc, geo)+'">Click Me!</button>'+
+          '<button type="button" onclick="'+calcRoute(geo)+'">Click Me!</button>'+
           '</div>'+
           "</div>";
 
@@ -485,12 +486,12 @@ $(document).ready(function() {
 
 
 
-function calcRoute(startRoute, endRoute){
+function calcRoute(endRoute){
   var directionsDisplay = new google.maps.DirectionsRenderer();
   var directionsService = new google.maps.DirectionsService();
 
   var request = {
-    origin:  startRoute,
+    origin:  myLOcation,
     destination:  endRoute,
     travelMode: google.maps.TravelMode.WALKING,
     unitSystem: google.maps.UnitSystem.METRIC

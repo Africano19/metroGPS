@@ -94,7 +94,7 @@ function allStations(){
                 strokeColor: '#F00',
                 fillColor: '#F00',
                 fillOpacity: 1,
-                scale: 5
+                scale: 3
               };
 
               const markerSub = new google.maps.Marker({
@@ -103,7 +103,7 @@ function allStations(){
                 title: item.est_name,
                 icon: square,
                 label: {
-                  text:"X",
+                  text:"M",
                   fontWeight: "bold"
                 }
               });

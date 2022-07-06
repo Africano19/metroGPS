@@ -77,7 +77,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
   <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="estacoes">
     <h2 class="w3-text-light-grey">Estações</h2>
     <hr style="width:200px" class="w3-opacity">
-    <center style="margin-left:20px;margin-right:20px;margin-top:10px;margin-bottom:10px;">
+    <center style="margin:20px;">
     <button type="button" id="greenLine" value="greenLine" class="button">Linha Verde</button>
     <button type="button" id="yellowLine" value="yellowLine" class="button button2" >Linha Amarela</button>
     <button type="button" id="blueLine" value="blueLine" class="button button3" >Linha Azul</button>

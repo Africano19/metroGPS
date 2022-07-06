@@ -439,7 +439,7 @@ $(document).ready(function() {
                 '<h3 id="firstHeading" class="firstHeading" style="font-size: 15px;"><b>'+item.est_name+'<b/></h3>' +
                 '<div id="bodyContent">' +
                 '<p>'+item.est_line+'</p>'+
-                +'<button type="button" onclick="">Distancia</button>'+
+                +'<button type="button">Distancia</button>'+
                 +' </div>'+
                 "</div>";
 

@@ -78,7 +78,21 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
       <h3 style="color:white; text-align:center;">Calcule a Rota até a Estação Pretendida</h3>
       <hr style="border: 2px solid white; width: 50%; margin: 0 25% 0 25%; ">
       <br/>
-
+      <select id="end">
+                                <?php
+                                        include 'db/php/db/init_connection.php';
+                                        $result1= pg_query($conn,"SELECT est_name, est_line,  ST_AsGeoJSON(est_geometry) as est_geometry FROM estacoes");
+                                        if(empty($result1)){
+                                          echo "Vazio";
+                                        }else{
+                                          while($row = pg_fetch_assoc($result1)){
+                                            $est_geo=$row['est_geometry'];
+                                            $est_name= $row['est_name'];
+                                            ?> <option value=<?php echo $est_geo; ?> > <?php echo $est_name; ?> </option> <?php
+                                          }
+                                        }
+                                  ?>        
+      </select>
     </div>
     <div class="w3-bar">
       <button class="w3-bar-item w3-button button2" id="yellowLine" value="yellowLine" style="width:33.3%;">Linha Amarela</button>

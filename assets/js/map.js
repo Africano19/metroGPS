@@ -5,6 +5,9 @@ let map, infoWindow;
 var myLOcation;
 
 function initMap() {
+  const directionsService = new google.maps.DirectionsService();
+  const directionsRenderer = new google.maps.DirectionsRenderer();
+
   map = new google.maps.Map(document.getElementById("googleMap"), {
     center: { lat: -34.397, lng: 150.644 },
     zoom: 12,
@@ -12,6 +15,15 @@ function initMap() {
   infoWindow = new google.maps.InfoWindow();
   getLocation();
   allStations();
+
+  const onChangeHandler = function () {
+    calculateAndDisplayRoute(directionsService, directionsRenderer);
+  };
+
+  (document.getElementById("end")).addEventListener(
+    "change",
+    onChangeHandler
+  );
 
 }
 
@@ -63,6 +75,21 @@ function getLocation() {
   } else {
     handleLocationError(false, infoWindow, map.getCenter());
   }
+}
+
+function calculateAndDisplayRoute(directionsService,directionsRenderer, status) {
+  directionsService
+    .route({
+      origin: myLOcation,
+      destination: {
+        query: (document.getElementById("end")).value,
+      },
+      travelMode: google.maps.TravelMode.WALKING,
+    })
+    .then((response) => {
+      directionsRenderer.setDirections(response);
+    })
+    .catch((e) => window.alert("Directions request failed due to " + status));
 }
 
 // Todas as estações

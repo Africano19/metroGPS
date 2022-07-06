@@ -440,10 +440,15 @@ $(document).ready(function() {
           '<h3 id="firstHeading" class="firstHeading" style="font-size: 15px;"><b>'+item.est_name+'<b/></h3>' +
           '<div id="bodyContent">' +
           '<p>'+item.est_line+'</p>'+
-          '<button type="button" onclick="'+calcRoute(item.est_geometry)+'">Click Me!</button>'+
+          '<button type="button" id="gps">Click Me!</button>'+
           '</div>'+
           "</div>";
 
+          document.getElementById("gps").onclick = function() {
+            calcRoute(item.est_geometry);
+        };
+
+        
               const infowindow = new google.maps.InfoWindow({
                 content: contentString,
               });

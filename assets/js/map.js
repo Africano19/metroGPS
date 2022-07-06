@@ -11,6 +11,7 @@ function initMap() {
   infoWindow = new google.maps.InfoWindow();
   getLocation();
   allStations();
+  calculateRouteFromAtoB();
 
 }
 
@@ -129,7 +130,10 @@ function calculateRouteFromAtoB() {
       routeRequestParams = {
         routingMode: 'fast',
         transportMode: 'car',
-        origin: '52.5160,13.3779', // Brandenburg Gate
+        origin: {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+        },
         destination: '52.5206,13.3862', // Friedrichstraße Railway Station
         return: 'polyline,turnByTurnActions,actions,instructions,travelSummary'
       };
@@ -143,7 +147,7 @@ function calculateRouteFromAtoB() {
 
 
 
-calculateRouteFromAtoB();
+
 
 // Linha Verde
 $(document).ready(function() {

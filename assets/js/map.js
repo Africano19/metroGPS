@@ -433,15 +433,15 @@ $(document).ready(function() {
 				let geo = JSON.parse(item.est_geometry);
           
           const contentString =
-                '<div id="content">' +
-                '<div id="siteNotice">' +
-                "</div>" +
-                '<h3 id="firstHeading" class="firstHeading" style="font-size: 15px;"><b>'+item.est_name+'<b/></h3>' +
-                '<div id="bodyContent">' +
-                '<p>'+item.est_line+'</p>'+
-                +'<button type="button">Distancia</button>'+
-                +' </div>'+
-                "</div>";
+          '<div id="content">' +
+          '<div id="siteNotice">' +
+          "</div>" +
+          '<h3 id="firstHeading" class="firstHeading" style="font-size: 15px;"><b>'+item.est_name+'<b/></h3>' +
+          '<div id="bodyContent">' +
+          '<p>'+item.est_line+'</p>'+
+          '<button type="button" onclick="'+calcRoute(myLoc, geo)+'">Click Me!</button>'+
+          '</div>'+
+          "</div>";
 
               const infowindow = new google.maps.InfoWindow({
                 content: contentString,

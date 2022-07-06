@@ -83,7 +83,7 @@ function calculateAndDisplayRoute(directionsService,directionsRenderer, status) 
   console.log(myLOcation);
   directionsService
     .route({
-      origin: myLOcation,
+      origin: { lat: myLOcation.coordinates[0], lng: myLOcation.coordinates[1]},
       destination: end,
       travelMode: google.maps.TravelMode.DRIVING,
     })

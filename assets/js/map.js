@@ -78,7 +78,7 @@ function getLocation() {
 }
 
 function calculateAndDisplayRoute(directionsService,directionsRenderer, status) {
-  const end = document.getElementById("end").value;
+  let end = JSON.parse(document.getElementById("end").value);
   console.log(end);
   console.log(myLOcation);
   directionsService

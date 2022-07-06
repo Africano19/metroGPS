@@ -73,9 +73,12 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
   <!-- About Section -->
   <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="estacoes">
     <h2 class="w3-text-light-grey">Estações</h2>
-    <hr style="width:200px" class="w3-opacity">
+    <hr style="width:200px;" class="w3-opacity">
     <div class ="calculateRoute">
-      <p>This text is centered.</p>
+      <h3 style="color:white; text-align:center;">Calcule a Rota até a Estação Pretendida</h3>
+      <hr style="border: 2px solid white;">
+      <br/>
+
     </div>
     <div class="w3-bar">
       <button class="w3-bar-item w3-button button2" id="yellowLine" value="yellowLine" style="width:33.3%;">Linha Amarela</button>

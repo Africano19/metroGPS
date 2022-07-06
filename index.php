@@ -71,7 +71,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
       <button class="w3-bar-item w3-button button5" id="allLines" style="width:33.3%;">Todas as Linhas</button>
       <button class="w3-bar-item w3-button button2" id="yellowLine" value="yellowLine" style="width:33.3%;">Linha Amarela</button>
       <button class="w3-bar-item w3-button button3" id="blueLine" value="blueLine" style="width:33.3%; ">Linha Azul</button>
-      <button class="w3-bar-item w3-button button4" id="redLine" value="redLine" value="redLine" style="width:50;">Linha Vermelha</button>
+      <button class="w3-bar-item w3-button button4" id="redLine" value="redLine" value="redLine" style="width:50%;">Linha Vermelha</button>
       <button class="w3-bar-item w3-button button" id="greenLine" value="greenLine" style="width:50%; ">Linha Verde</button>  
     </div>
     <div id="googleMap" style="width:100%;height:600px;"></div>

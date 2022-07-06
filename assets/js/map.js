@@ -16,16 +16,13 @@ function initMap() {
   infoWindow = new google.maps.InfoWindow();
   getLocation();
   allStations();
- 
 }
-(document.getElementById("end")).addEventListener(
-  "change",
-  onChangeHandler
-);
-const onChangeHandler = function () {
-  calculateAndDisplayRoute();
-};
 
+const onChangeHandler = function() {
+  console.log("onChangeHandler");
+  calculateAndDisplayRoute(directionsService, directionsRenderer);
+};
+document.getElementById("end").addEventListener("change", onChangeHandler);
 
 
 //A MINHA LOCALIZAÇÃO
@@ -78,21 +75,23 @@ function getLocation() {
   }
 }
 
-function calculateAndDisplayRoute() {
+function calculateAndDisplayRoute(directionsService,directionsRenderer, status) {
   let end = JSON.parse(document.getElementById("end").value);
   console.log(end);
   console.log(myLOcation);
-  var request = {
-    origin: myLOcation,
-    destination: { lat: end.coordinates[1], lng: end.coordinates[0]},
-    travelMode: google.maps.DirectionsTravelMode.DRIVING
-  };
-  directionsService.route(request, function(response, status) {
-    if (status == google.maps.DirectionsStatus.OK) {
-      directionsDisplay.setDirections(response);
-      var route = response.routes[0];
-    }
-  });
+  
+  directionsService
+    .route({
+      origin: myLOcation,
+      destination: { lat: end.coordinates[1], lng: end.coordinates[0]},
+      travelMode: google.maps.DirectionsTravelMode.DRIVING,
+    })
+    .then((response) => {
+      console.log(response);
+
+      directionsRenderer.setDirections(response);
+    })
+    .catch((e) => window.alert("Directions request failed due to " + status));
 }
 
 // Todas as estações

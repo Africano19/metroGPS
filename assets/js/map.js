@@ -3,7 +3,7 @@ var myLocation;
 var homeLocation;
 let map, infoWindow, coord;
 var myLOcation;
-var estacoes;
+let estacoes;
 
 function initMap() {
   const directionsService = new google.maps.DirectionsService();
@@ -16,7 +16,7 @@ function initMap() {
   infoWindow = new google.maps.InfoWindow();
   getLocation();
   allStations();
-
+  nearbyStation();
   directionsRenderer.setMap(map);
 
   const onChangeHandler = function () {
@@ -109,7 +109,6 @@ function allStations(){
 		dataType: 'json',
 		success: function(data){
       estacoes = data;
-      nearbyStation();
 			data.forEach((item) => {
 				let geo = JSON.parse(item.est_geometry);
           

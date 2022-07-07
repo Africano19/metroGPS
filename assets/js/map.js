@@ -179,6 +179,7 @@ $(document).ready(function() {
     directionsRenderer.setMap(map);
 
     const onChangeHandler = function () {
+      let greenEnd = JSON.parse(document.getElementById("endGreen").value);
       calculateAndDisplayRoute(directionsService, directionsRenderer, greenEnd);
     };
     (document.getElementById("endGreen")).addEventListener(
@@ -186,7 +187,7 @@ $(document).ready(function() {
       onChangeHandler
     );
   
-    let greenEnd = JSON.parse(document.getElementById("endGreen").value);
+   
 
   $.ajax({
 		url: 'https://gps-metro.herokuapp.com/db/php/auten/green.php',

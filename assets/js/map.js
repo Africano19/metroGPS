@@ -19,12 +19,13 @@ function initMap() {
   directionsRenderer.setMap(map);
 
   const onChangeHandler = function () {
-    calculateAndDisplayRoute(directionsService, directionsRenderer);
+    calculateAndDisplayRoute(directionsService, directionsRenderer, end );
   };
   (document.getElementById("end")).addEventListener(
     "change",
     onChangeHandler
   );
+    let end = JSON.parse(document.getElementById("end").value);
 }
 
 
@@ -177,13 +178,15 @@ $(document).ready(function() {
 
     directionsRenderer.setMap(map);
 
-  const onChangeHandler = function () {
-    calculateAndDisplayRoute(directionsService, directionsRenderer);
-  };
-  (document.getElementById("end")).addEventListener(
-    "change",
-    onChangeHandler
-  );
+    const onChangeHandler = function () {
+      calculateAndDisplayRoute(directionsService, directionsRenderer, greenEnd);
+    };
+    (document.getElementById("endGreen")).addEventListener(
+      "change",
+      onChangeHandler
+    );
+  
+    let greenEnd = JSON.parse(document.getElementById("endGreen").value);
 
   $.ajax({
 		url: 'https://gps-metro.herokuapp.com/db/php/auten/green.php',
@@ -258,15 +261,20 @@ $(document).ready(function() {
     
     getLocation();
 
+
     directionsRenderer.setMap(map);
 
+    
   const onChangeHandler = function () {
-    calculateAndDisplayRoute(directionsService, directionsRenderer);
+    calculateAndDisplayRoute(directionsService, directionsRenderer, blueEnd);
   };
-  (document.getElementById("end")).addEventListener(
+  (document.getElementById("endBlue")).addEventListener(
     "change",
     onChangeHandler
   );
+
+  let blueEnd = JSON.parse(document.getElementById("endBlue").value);
+
 
     
   $.ajax({
@@ -343,13 +351,17 @@ $(document).ready(function() {
 
     directionsRenderer.setMap(map);
 
+    
+
   const onChangeHandler = function () {
-    calculateAndDisplayRoute(directionsService, directionsRenderer);
+    calculateAndDisplayRoute(directionsService, directionsRenderer, redEnd);
   };
-  (document.getElementById("end")).addEventListener(
+  (document.getElementById("endRed")).addEventListener(
     "change",
     onChangeHandler
   );
+
+  let redEnd = JSON.parse(document.getElementById("endRed").value);
     
   $.ajax({
 		url: 'https://gps-metro.herokuapp.com/db/php/auten/red.php',
@@ -434,7 +446,7 @@ $(document).ready(function() {
 
     directionsRenderer.setMap(map);
 
-    let yellEnd = JSON.parse(document.getElementById("endYellow").value);
+    
 
   const onChangeHandler = function () {
     calculateAndDisplayRoute(directionsService, directionsRenderer, yellEnd);
@@ -443,6 +455,8 @@ $(document).ready(function() {
     "change",
     onChangeHandler
   );
+
+  let yellEnd = JSON.parse(document.getElementById("endYellow").value);
     
   $.ajax({
 		url: 'https://gps-metro.herokuapp.com/db/php/auten/yellow.php',
@@ -517,13 +531,15 @@ $(document).ready(function() {
 
     directionsRenderer.setMap(map);
 
-  const onChangeHandler = function () {
-    calculateAndDisplayRoute(directionsService, directionsRenderer);
-  };
-  (document.getElementById("end")).addEventListener(
-    "change",
-    onChangeHandler
-  );
+    const onChangeHandler = function () {
+      calculateAndDisplayRoute(directionsService, directionsRenderer, endAll);
+    };
+    (document.getElementById("endAll")).addEventListener(
+      "change",
+      onChangeHandler
+    );
+  
+    let endAll = JSON.parse(document.getElementById("endAll").value);
     
   $.ajax({
 		url: 'https://gps-metro.herokuapp.com/db/php/auten/estacoes.php',

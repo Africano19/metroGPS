@@ -16,7 +16,6 @@ function initMap() {
   infoWindow = new google.maps.InfoWindow();
   getLocation();
   allStations();
-  nearbyStation();
 
   directionsRenderer.setMap(map);
 
@@ -110,6 +109,7 @@ function allStations(){
 		dataType: 'json',
 		success: function(data){
       estacoes = data;
+      nearbyStation();
 			data.forEach((item) => {
 				let geo = JSON.parse(item.est_geometry);
           

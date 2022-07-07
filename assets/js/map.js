@@ -1,8 +1,10 @@
 
 var myLocation;
 var homeLocation;
-let map, infoWindow;
+let map, infoWindow, coord;
 var myLOcation;
+var service;
+let coords = new Array();
 
 function initMap() {
   const directionsService = new google.maps.DirectionsService();
@@ -15,6 +17,7 @@ function initMap() {
   infoWindow = new google.maps.InfoWindow();
   getLocation();
   allStations();
+  nearbyStation();
 
   directionsRenderer.setMap(map);
 
@@ -152,6 +155,15 @@ function allStations(){
                   shouldFocus: true,
                 });
               });
+              
+              
+              markerSub.forEach(item => {
+                coord = item.coord.replaceAll("POINT(", "");
+                coord = coord.replaceAll(")", "");
+                coord = coord.split(" ");
+                const latLng = new google.maps.LatLng(coord[1], coord[0]);
+                coords.push(latLng);
+              });
 
 			});
 
@@ -159,7 +171,50 @@ function allStations(){
 	});
 }
 
+function nearbyStation(){
+  service = new google.maps.DistanceMatrixService();
+  service.getDistanceMatrix(
+    {
+      origins: myLOcation,
+      destinations: coords,
+      travelMode: 'DRIVING',
+      transitOptions: TransitOptions,
+      drivingOptions: DrivingOptions,
+      unitSystem: google.maps.UnitSystem.METRIC,
+    }, callback);
 
+  function callback(response, status) {
+    console.log(resp, status);
+    var fastId = -1;
+    var fastRoute = 99999999999999;
+    var fastRoutText = "";
+    for(var i = 0; i < resp.rows[0].elements.length; i++){
+        if(resp.rows[0].elements[i].distance.value < fastRoute){
+            fastRoute = resp.rows[0].elements[i].distance.value;
+            fastRoutText = resp.rows[0].elements[i].distance.text;
+            fastId = i;
+        }
+      }
+
+      console.log(resp.destinationAddresses[fastId], fastRoutText);
+    
+      geocoder
+      .geocode({address: resp.destinationAddresses[fastId]})
+      .then((result) => {
+          const { results } = result;
+          console.log(results);
+
+          start = myLOcation;
+          end = {"lat": results[0].geometry.location.lat(), "lng": results[0].geometry.location.lng()};
+          calcRoute();
+      })
+      .catch((e) => {
+          alert("Geocode was not successful for the following reason: " + e);
+      });
+
+  }
+
+}
 
 // Linha Verde
 $(document).ready(function() {

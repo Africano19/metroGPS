@@ -96,14 +96,13 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 
       <select id="endGreen">
                                 <?php
-                                        include 'db/php/db/init_connection.php';
-                                        $result1= pg_query($conn,"SELECT est_name, est_line,  ST_AsGeoJSON(est_geometry) as est_geometry FROM estacoes");
-                                        if(empty($result1)){
+                                        $green= pg_query($conn,"SELECT est_name, est_line,  ST_AsGeoJSON(est_geometry) as est_geometry FROM estacoes WHERE est_line LIKE '%Verde%'");
+                                        if(empty($green)){
                                           echo "Vazio";
                                         }else{
-                                          while($row = pg_fetch_assoc($result1)){
-                                            $est_geo=$row['est_geometry'];
-                                            $est_name= $row['est_name'];
+                                          while($rowGreen = pg_fetch_assoc($green)){
+                                            $est_geo=$rowGreen['est_geometry'];
+                                            $est_name= $rowGreen['est_name'];
                                             ?> <option value=<?php echo $est_geo; ?> > <?php echo $est_name; ?> </option> <?php
                                           }
                                         }
@@ -112,14 +111,13 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 
       <select id="endRed" >
                                 <?php
-                                        include 'db/php/db/init_connection.php';
-                                        $result1= pg_query($conn,"SELECT est_name, est_line,  ST_AsGeoJSON(est_geometry) as est_geometry FROM estacoes");
-                                        if(empty($result1)){
+                                        $red= pg_query($conn,"SELECT est_name, est_line,  ST_AsGeoJSON(est_geometry) as est_geometry FROM estacoes WHERE est_line LIKE '%Vermelha%'");
+                                        if(empty($red)){
                                           echo "Vazio";
                                         }else{
-                                          while($row = pg_fetch_assoc($result1)){
-                                            $est_geo=$row['est_geometry'];
-                                            $est_name= $row['est_name'];
+                                          while($rowRed = pg_fetch_assoc($red)){
+                                            $est_geo=$rowRed['est_geometry'];
+                                            $est_name= $rowRed['est_name'];
                                             ?> <option value=<?php echo $est_geo; ?> > <?php echo $est_name; ?> </option> <?php
                                           }
                                         }
@@ -128,14 +126,13 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 
       <select id="endYellow">
                                 <?php
-                                        include 'db/php/db/init_connection.php';
-                                        $result1= pg_query($conn,"SELECT est_name, est_line,  ST_AsGeoJSON(est_geometry) as est_geometry FROM estacoes");
-                                        if(empty($result1)){
+                                        $yellow= pg_query($conn,"SELECT est_name, est_line,  ST_AsGeoJSON(est_geometry) as est_geometry FROM estacoes WHERE est_line LIKE '%Amarela%'");
+                                        if(empty($yellow)){
                                           echo "Vazio";
                                         }else{
-                                          while($row = pg_fetch_assoc($result1)){
-                                            $est_geo=$row['est_geometry'];
-                                            $est_name= $row['est_name'];
+                                          while($rowYellow = pg_fetch_assoc($yellow)){
+                                            $est_geo=$rowYellow['est_geometry'];
+                                            $est_name= $rowYellow['est_name'];
                                             ?> <option value=<?php echo $est_geo; ?> > <?php echo $est_name; ?> </option> <?php
                                           }
                                         }
@@ -144,14 +141,13 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 
       <select id="endBlue">
                                 <?php
-                                        include 'db/php/db/init_connection.php';
-                                        $result1= pg_query($conn,"SELECT est_name, est_line,  ST_AsGeoJSON(est_geometry) as est_geometry FROM estacoes");
-                                        if(empty($result1)){
+                                        $blue= pg_query($conn,"SELECT est_name, est_line,  ST_AsGeoJSON(est_geometry) as est_geometry FROM estacoes WHERE est_line LIKE '%Azul%'");
+                                        if(empty($blue)){
                                           echo "Vazio";
                                         }else{
-                                          while($row = pg_fetch_assoc($result1)){
-                                            $est_geo=$row['est_geometry'];
-                                            $est_name= $row['est_name'];
+                                          while($rowBlue = pg_fetch_assoc($blue)){
+                                            $est_geo=$rowBlue['est_geometry'];
+                                            $est_name= $rowBlue['est_name'];
                                             ?> <option value=<?php echo $est_geo; ?> > <?php echo $est_name; ?> </option> <?php
                                           }
                                         }
@@ -160,14 +156,13 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 
       <select id="endALL">
                                 <?php
-                                        include 'db/php/db/init_connection.php';
-                                        $result1= pg_query($conn,"SELECT est_name, est_line,  ST_AsGeoJSON(est_geometry) as est_geometry FROM estacoes");
-                                        if(empty($result1)){
+                                        $all= pg_query($conn,"SELECT est_name, est_line,  ST_AsGeoJSON(est_geometry) as est_geometry FROM estacoes");
+                                        if(empty($all)){
                                           echo "Vazio";
                                         }else{
-                                          while($row = pg_fetch_assoc($result1)){
-                                            $est_geo=$row['est_geometry'];
-                                            $est_name= $row['est_name'];
+                                          while($rowAll = pg_fetch_assoc($all)){
+                                            $est_geo=$rowAll['est_geometry'];
+                                            $est_name= $rowAll['est_name'];
                                             ?> <option value=<?php echo $est_geo; ?> > <?php echo $est_name; ?> </option> <?php
                                           }
                                         }
@@ -198,8 +193,6 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
   document.getElementById('endRed').style.display = "none";
   document.getElementById('endYellow').style.display = "none";
   document.getElementById('endBlue').style.display = "none";
-
-
 </script>
 <script src="assets/js/map.js"></script> 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGBMCCQiW1-uIegj9TamCdMnlmWur8jak&callback=initMap" async defer></script>

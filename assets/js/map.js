@@ -438,7 +438,7 @@ $(document).ready(function() {
   const onChangeHandler = function () {
     calculateAndDisplayRoute(directionsService, directionsRenderer);
   };
-  (document.getElementById("end")).addEventListener(
+  (document.getElementById("endYellow")).addEventListener(
     "change",
     onChangeHandler
   );

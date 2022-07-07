@@ -198,6 +198,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
   document.getElementById('yellowLine').onclick = function(){
     document.getElementById('endYellow').style.display = "block";
   document.getElementById('end').style.display = "none";
+  
 }
 
 

@@ -5,6 +5,8 @@ let map, infoWindow;
 var myLOcation;
 
 function initMap() {
+  const directionsService = new google.maps.DirectionsService();
+  const directionsRenderer = new google.maps.DirectionsRenderer();
     map = new google.maps.Map(document.getElementById("googleMap"), {
     center: { lat: -34.397, lng: 150.644 },
     zoom: 12,
@@ -14,8 +16,10 @@ function initMap() {
   getLocation();
   allStations();
 
+  directionsRenderer.setMap(map);
+
   const onChangeHandler = function () {
-    calculateAndDisplayRoute();
+    calculateAndDisplayRoute(directionsService, directionsRenderer);
   };
   (document.getElementById("end")).addEventListener(
     "change",
@@ -28,7 +32,7 @@ function initMap() {
 
 
 //A MINHA LOCALIZAÇÃO
-function getLocation() {
+function getLocation(directionsService, directionsRenderer) {
   
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
@@ -78,8 +82,7 @@ function getLocation() {
 }
 
 function calculateAndDisplayRoute() {
-  const directionsService = new google.maps.DirectionsService();
-  const directionsRenderer = new google.maps.DirectionsRenderer();
+
   
   let end = JSON.parse(document.getElementById("end").value);
   directionsService

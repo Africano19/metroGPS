@@ -78,7 +78,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
       <h3 style="color:white; text-align:center;">Calcule a Rota até a Estação Pretendida</h3>
       <hr style="border: 2px solid white; width: 50%; margin: 0 25% 0 25%; ">
       <br/>
-      <select id="end" class="main">
+      <select id="end">
                                 <?php
                                         include 'db/php/db/init_connection.php';
                                         $result1= pg_query($conn,"SELECT est_name, est_line,  ST_AsGeoJSON(est_geometry) as est_geometry FROM estacoes");
@@ -93,7 +93,8 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
                                         }
                                   ?>        
       </select>
-      <select id="end" class="green">
+
+      <select id="endGreen">
                                 <?php
                                         include 'db/php/db/init_connection.php';
                                         $result1= pg_query($conn,"SELECT est_name, est_line,  ST_AsGeoJSON(est_geometry) as est_geometry FROM estacoes");
@@ -108,7 +109,8 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
                                         }
                                   ?>        
       </select>
-      <select id="end" class="red">
+
+      <select id="endRed" >
                                 <?php
                                         include 'db/php/db/init_connection.php';
                                         $result1= pg_query($conn,"SELECT est_name, est_line,  ST_AsGeoJSON(est_geometry) as est_geometry FROM estacoes");
@@ -123,7 +125,8 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
                                         }
                                   ?>        
       </select>
-      <select id="end" class="blue">
+
+      <select id="endYellow">
                                 <?php
                                         include 'db/php/db/init_connection.php';
                                         $result1= pg_query($conn,"SELECT est_name, est_line,  ST_AsGeoJSON(est_geometry) as est_geometry FROM estacoes");
@@ -138,7 +141,8 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
                                         }
                                   ?>        
       </select>
-      <select id="end" class="yellow">
+
+      <select id="endBlue">
                                 <?php
                                         include 'db/php/db/init_connection.php';
                                         $result1= pg_query($conn,"SELECT est_name, est_line,  ST_AsGeoJSON(est_geometry) as est_geometry FROM estacoes");
@@ -153,7 +157,8 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
                                         }
                                   ?>        
       </select>
-      <select id="end" class="all">
+
+      <select id="endALL">
                                 <?php
                                         include 'db/php/db/init_connection.php';
                                         $result1= pg_query($conn,"SELECT est_name, est_line,  ST_AsGeoJSON(est_geometry) as est_geometry FROM estacoes");
@@ -168,6 +173,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
                                         }
                                   ?>        
       </select>
+
       <br/>
       <hr style="width:200px;" class="w3-opacity">
     </div>
@@ -187,11 +193,11 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 <!-- END PAGE CONTENT -->
 </div>
 <script>
-  document.getElementsByClassName('all').style.display = "none";
-  document.getElementsByClassName('yellow').style.display = "none";
-  document.getElementsByClassName('blue').style.display = "none";
-  document.getElementsByClassName('red').style.display = "none";
-  document.getElementsByClassName('green').style.display = "none";
+  document.getElementById('endALL').style.display = "none";
+  document.getElementById('endGreen').style.display = "none";
+  document.getElementById('endRed').style.display = "none";
+  document.getElementById('endYellow').style.display = "none";
+  document.getElementById('endBlue').style.display = "none";
 
 
 </script>

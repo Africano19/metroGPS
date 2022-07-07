@@ -80,7 +80,7 @@ function getLocation() {
 function calculateAndDisplayRoute() {
   const directionsService = new google.maps.DirectionsService();
   const directionsRenderer = new google.maps.DirectionsRenderer();
-
+  
   let end = JSON.parse(document.getElementById("end").value);
   directionsService
     .route({
@@ -89,6 +89,7 @@ function calculateAndDisplayRoute() {
       travelMode: google.maps.TravelMode.DRIVING,
     })
     .then((response) => {
+      console.log(response);
       directionsRenderer.setDirections(response);
     })
     .catch((e) => window.alert("Directions request failed due to " + status));

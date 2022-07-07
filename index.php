@@ -157,8 +157,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
                                               }
                                         ?>        
             </select>
-      </div>
-      <div class="custom-select">
+
             <select id="endGreen">
                                       <?php
                                               $green= pg_query($conn,"SELECT est_name, est_line,  ST_AsGeoJSON(est_geometry) as est_geometry FROM estacoes WHERE est_line LIKE '%Verde%'");
@@ -173,8 +172,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
                                               }
                                         ?>        
             </select>
-      </div>
-      <div class="custom-select">                                        
+                                       
             <select id="endRed" >
                                       <?php
                                               $red= pg_query($conn,"SELECT est_name, est_line,  ST_AsGeoJSON(est_geometry) as est_geometry FROM estacoes WHERE est_line LIKE '%Vermelha%'");
@@ -189,8 +187,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
                                               }
                                         ?>        
             </select>
-      </div>
-      <div class="custom-select">
+
             <select id="endYellow">
                                       <?php
                                               $yellow= pg_query($conn,"SELECT est_name, est_line,  ST_AsGeoJSON(est_geometry) as est_geometry FROM estacoes WHERE est_line LIKE '%Amarela%'");
@@ -205,8 +202,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
                                               }
                                         ?>        
             </select>
-      </div>
-      <div class="custom-select">
+
             <select id="endBlue">
                                       <?php
                                               $blue= pg_query($conn,"SELECT est_name, est_line,  ST_AsGeoJSON(est_geometry) as est_geometry FROM estacoes WHERE est_line LIKE '%Azul%'");

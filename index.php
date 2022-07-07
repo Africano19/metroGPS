@@ -90,7 +90,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
                                             $est_geo=$row['est_geometry'];
                                             $est_name= $row['est_name'];
                                             $est_line= $row['est_line'];
-                                            ?> <option value=<?php echo $est_geo; ?> > <?php echo "Estação: "+ $est_name + ", Linha: "+ $est_line; ?> </option> <?php
+                                            ?> <option value=<?php echo $est_geo; ?> > <?php echo "Estação: " $est_name  ", Linha: " $est_line; ?> </option> <?php
                                           }
                                         }
                                   ?>        

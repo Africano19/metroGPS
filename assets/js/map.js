@@ -17,7 +17,6 @@ function initMap() {
   infoWindow = new google.maps.InfoWindow();
   getLocation();
   allStations();
-  nearbyStation();
 
   directionsRenderer.setMap(map);
 
@@ -156,17 +155,7 @@ function allStations(){
                 });
               });
               
-              
-              
-
-			});
-
-		}
-	});
-}
-
-function nearbyStation(){
-  service = new google.maps.DistanceMatrixService();
+      service = new google.maps.DistanceMatrixService();
   markerSub.forEach(item => {
     coord = item.coord.replaceAll("POINT(", "");
     coord = coord.replaceAll(")", "");
@@ -214,6 +203,16 @@ function nearbyStation(){
       });
 
   }
+              
+
+			});
+
+		}
+	});
+}
+
+function nearbyStation(){
+  
 
 }
 

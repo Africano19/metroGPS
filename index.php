@@ -157,13 +157,13 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 
       <select id="endALL">
                                 <?php
-                                        $all= pg_query($conn,"SELECT est_name, est_line,  ST_AsGeoJSON(est_geometry) as est_geometry FROM estacoes");
-                                        if(empty($all)){
+                                        $all1= pg_query($conn,"SELECT est_name, est_line,  ST_AsGeoJSON(est_geometry) as est_geometry FROM estacoes");
+                                        if(empty($all1)){
                                           echo "Vazio";
                                         }else{
-                                          while($rowAll = pg_fetch_assoc($all)){
-                                            $est_geo=$rowAll['est_geometry'];
-                                            $est_name= $rowAll['est_name'];
+                                          while($rowAll1 = pg_fetch_assoc($all1)){
+                                            $est_geo=$rowAll1['est_geometry'];
+                                            $est_name= $rowAll1['est_name'];
                                             ?> <option value=<?php echo $est_geo; ?> > <?php echo $est_name; ?> </option> <?php
                                           }
                                         }
@@ -231,7 +231,7 @@ document.getElementById('greenLine').onclick = function(){
   document.getElementById('endBlue').style.display = "none";}
 
 document.getElementById('allLines').onclick = function(){
-    document.getElementById('endAll').style.display = "block";
+  document.getElementById('endAll').style.display = "block";
   document.getElementById('end').style.display = "none";
   document.getElementById('endGreen').style.display = "none";
   document.getElementById('endRed').style.display = "none";

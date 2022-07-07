@@ -104,6 +104,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
                                                 while($rowGreen = pg_fetch_assoc($green)){
                                                   $est_geo=$rowGreen['est_geometry'];
                                                   $est_name= $rowGreen['est_name'];
+                                                  $est_line= $row['est_line'];
                                                   ?> <option value=<?php echo $est_geo; ?> > <?php echo "Estação: ".$est_name.", Linha: ".$est_line."."; ?> </option> <?php
                                                 }
                                               }
@@ -119,6 +120,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
                                                 while($rowRed = pg_fetch_assoc($red)){
                                                   $est_geo=$rowRed['est_geometry'];
                                                   $est_name= $rowRed['est_name'];
+                                                  $est_line= $row['est_line'];
                                                   ?> <option value=<?php echo $est_geo; ?> > <?php echo "Estação: ".$est_name.", Linha: ".$est_line."."; ?> </option> <?php
                                                 }
                                               }
@@ -134,6 +136,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
                                                 while($rowYellow = pg_fetch_assoc($yellow)){
                                                   $est_geo=$rowYellow['est_geometry'];
                                                   $est_name= $rowYellow['est_name'];
+                                                  $est_line= $row['est_line'];
                                                   ?> <option value=<?php echo $est_geo; ?> > <?php echo "Estação: ".$est_name.", Linha: ".$est_line."."; ?> </option> <?php
                                                 }
                                               }
@@ -149,6 +152,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
                                                 while($rowBlue = pg_fetch_assoc($blue)){
                                                   $est_geo=$rowBlue['est_geometry'];
                                                   $est_name= $rowBlue['est_name'];
+                                                  $est_line= $row['est_line'];
                                                   ?> <option value=<?php echo $est_geo; ?> > <?php echo "Estação: ".$est_name.", Linha: ".$est_line."."; ?> </option> <?php
                                                 }
                                               }

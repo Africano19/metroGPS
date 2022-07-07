@@ -166,12 +166,25 @@ $(document).ready(function() {
     e.preventDefault();
     //map.remove();
 
+    const directionsService = new google.maps.DirectionsService();
+    const directionsRenderer = new google.maps.DirectionsRenderer();
+
     map = new google.maps.Map(document.getElementById("googleMap"), {
       center: { lat: -34.397, lng: 150.644 },
       zoom: 12,
     });
-  
+    
     getLocation();
+
+    directionsRenderer.setMap(map);
+
+  const onChangeHandler = function () {
+    calculateAndDisplayRoute(directionsService, directionsRenderer);
+  };
+  (document.getElementById("end")).addEventListener(
+    "change",
+    onChangeHandler
+  );
 
   $.ajax({
 		url: 'https://gps-metro.herokuapp.com/db/php/auten/green.php',
@@ -236,12 +249,26 @@ $(document).ready(function() {
     e.preventDefault();
     //map.remove();
 
+    const directionsService = new google.maps.DirectionsService();
+    const directionsRenderer = new google.maps.DirectionsRenderer();
+
     map = new google.maps.Map(document.getElementById("googleMap"), {
       center: { lat: -34.397, lng: 150.644 },
       zoom: 12,
     });
-  
+    
     getLocation();
+
+    directionsRenderer.setMap(map);
+
+  const onChangeHandler = function () {
+    calculateAndDisplayRoute(directionsService, directionsRenderer);
+  };
+  (document.getElementById("end")).addEventListener(
+    "change",
+    onChangeHandler
+  );
+
     
   $.ajax({
 		url: 'https://gps-metro.herokuapp.com/db/php/auten/blue.php',
@@ -305,12 +332,25 @@ $(document).ready(function() {
     e.preventDefault();
     //map.remove();
 
+    const directionsService = new google.maps.DirectionsService();
+    const directionsRenderer = new google.maps.DirectionsRenderer();
+
     map = new google.maps.Map(document.getElementById("googleMap"), {
       center: { lat: -34.397, lng: 150.644 },
       zoom: 12,
     });
-  
+    
     getLocation();
+
+    directionsRenderer.setMap(map);
+
+  const onChangeHandler = function () {
+    calculateAndDisplayRoute(directionsService, directionsRenderer);
+  };
+  (document.getElementById("end")).addEventListener(
+    "change",
+    onChangeHandler
+  );
     
   $.ajax({
 		url: 'https://gps-metro.herokuapp.com/db/php/auten/red.php',
@@ -383,12 +423,25 @@ $(document).ready(function() {
     e.preventDefault();
     //map.remove();
 
+    const directionsService = new google.maps.DirectionsService();
+    const directionsRenderer = new google.maps.DirectionsRenderer();
+
     map = new google.maps.Map(document.getElementById("googleMap"), {
       center: { lat: -34.397, lng: 150.644 },
       zoom: 12,
     });
-  
+    
     getLocation();
+
+    directionsRenderer.setMap(map);
+
+  const onChangeHandler = function () {
+    calculateAndDisplayRoute(directionsService, directionsRenderer);
+  };
+  (document.getElementById("end")).addEventListener(
+    "change",
+    onChangeHandler
+  );
     
   $.ajax({
 		url: 'https://gps-metro.herokuapp.com/db/php/auten/yellow.php',
@@ -451,12 +504,25 @@ $(document).ready(function() {
     e.preventDefault();
     //map.remove();
 
+    const directionsService = new google.maps.DirectionsService();
+    const directionsRenderer = new google.maps.DirectionsRenderer();
+
     map = new google.maps.Map(document.getElementById("googleMap"), {
       center: { lat: -34.397, lng: 150.644 },
       zoom: 12,
     });
-  
+    
     getLocation();
+
+    directionsRenderer.setMap(map);
+
+  const onChangeHandler = function () {
+    calculateAndDisplayRoute(directionsService, directionsRenderer);
+  };
+  (document.getElementById("end")).addEventListener(
+    "change",
+    onChangeHandler
+  );
     
   $.ajax({
 		url: 'https://gps-metro.herokuapp.com/db/php/auten/estacoes.php',
@@ -518,31 +584,6 @@ $(document).ready(function() {
 	  });
   });
 });
-
-
-
-/*function calcRoute(endRoute){
-  var directionsDisplay = new google.maps.DirectionsRenderer();
-  var directionsService = new google.maps.DirectionsService();
-
-  var request = {
-    origin:  myLOcation,
-    destination:  endRoute,
-    travelMode: google.maps.TravelMode.WALKING,
-    unitSystem: google.maps.UnitSystem.METRIC
-  }
-
-  directionsService.route(request,(result, status) => {
-    if(status == google.maps.DirectionsStatus.Ok) {
-      
-      //const output = document.querySelector('#output');
-      directionsDisplay.setDirections(result);
-    }else{
-      directionsDisplay.setDirections({routes:[]});
-      map.setCenter({ lat: -34.397, lng: 150.644 });
-    }
-  });
-}*/
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.setPosition(pos);

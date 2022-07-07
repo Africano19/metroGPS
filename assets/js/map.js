@@ -17,6 +17,8 @@ function initMap() {
   allStations();
   find_closest_markers(n);
 
+  directionsRenderer.setMap(map);
+
   const onChangeHandler = function () {
     let end = JSON.parse(document.getElementById("end").value);
     calculateAndDisplayRoute(directionsService, directionsRenderer, end );
@@ -32,7 +34,7 @@ function initMap() {
 
 
 
-//A MINHA LOCALIZAÇÃO 
+//A MINHA LOCALIZAÇÃO DRIVING
 function getLocation() {
   
   if (navigator.geolocation) {
@@ -157,6 +159,7 @@ function allStations(){
 		}
 	});
 }
+
 
 
 // Linha Verde

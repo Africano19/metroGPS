@@ -81,8 +81,7 @@ function getLocation() {
   }
 }
 
-function calculateAndDisplayRoute(directionsService, directionsRenderer) {
-  let end = JSON.parse(document.getElementById("end").value);
+function calculateAndDisplayRoute(directionsService, directionsRenderer, end) {
   directionsService
     .route({
       origin: myLOcation,
@@ -435,8 +434,10 @@ $(document).ready(function() {
 
     directionsRenderer.setMap(map);
 
+    let yellEnd = JSON.parse(document.getElementById("endYellow").value);
+
   const onChangeHandler = function () {
-    calculateAndDisplayRoute(directionsService, directionsRenderer);
+    calculateAndDisplayRoute(directionsService, directionsRenderer, yellEnd);
   };
   (document.getElementById("endYellow")).addEventListener(
     "change",

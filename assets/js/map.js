@@ -16,7 +16,7 @@ function initMap() {
   infoWindow = new google.maps.InfoWindow();
   getLocation();
   allStations();
-  nearbyStation();
+  //nearbyStation();
   directionsRenderer.setMap(map);
 
   const onChangeHandler = function () {
@@ -158,18 +158,18 @@ function allStations(){
 		}
 	});
 }
-
+/*
 function nearbyStation(){
   var service = new google.maps.DistanceMatrixService();
 
   let coords = new Array();          
-  estacoes.forEach(item => {
-    let coord = item.coord.replaceAll("POINT(", "");
-    coord = coord.replaceAll(")", "");
-    coord = coord.split(" ");
-    const latLng = new google.maps.LatLng(coord[1], coord[0]);
-    coords.push(latLng);
-});
+    estacoes.forEach(item => {
+      let coord = item.coord.replaceAll("POINT(", "");
+      coord = coord.replaceAll(")", "");
+      coord = coord.split(" ");
+      const latLng = new google.maps.LatLng(coord[1], coord[0]);
+      coords.push(latLng);
+  });
 
   service.getDistanceMatrix(
     {
@@ -181,23 +181,23 @@ function nearbyStation(){
       unitSystem: google.maps.UnitSystem.METRIC,
     }, callback);
 
-  function callback(response, status) {
-    console.log(resp, status);
+    function callback(response, status) {
+    console.log(response, status);
     var fastId = -1;
-    var fastRoute = 99999999999999;
+    var fastRoute = 99999999;
     var fastRoutText = "";
-    for(var i = 0; i < resp.rows[0].elements.length; i++){
-        if(resp.rows[0].elements[i].distance.value < fastRoute){
-            fastRoute = resp.rows[0].elements[i].distance.value;
-            fastRoutText = resp.rows[0].elements[i].distance.text;
+    for(var i = 0; i < response.rows[0].elements.length; i++){
+        if(response.rows[0].elements[i].distance.value < fastRoute){
+            fastRoute = response.rows[0].elements[i].distance.value;
+            fastRoutText = response.rows[0].elements[i].distance.text;
             fastId = i;
         }
       }
 
-      console.log(resp.destinationAddresses[fastId], fastRoutText);
+      console.log(response.destinationAddresses[fastId], fastRoutText);
     
       geocoder
-      .geocode({address: resp.destinationAddresses[fastId]})
+      .geocode({address: response.destinationAddresses[fastId]})
       .then((result) => {
           const { results } = result;
           console.log(results);
@@ -213,6 +213,7 @@ function nearbyStation(){
   }
 
 }
+*/
 
 // Linha Verde
 $(document).ready(function() {

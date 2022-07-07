@@ -15,7 +15,6 @@ function initMap() {
   infoWindow = new google.maps.InfoWindow();
   getLocation();
   allStations();
-  find_closest_markers(n);
 
   directionsRenderer.setMap(map);
 

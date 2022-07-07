@@ -33,7 +33,7 @@ function initMap() {
 
 
 
-//A MINHA LOCALIZAÇÃO
+//A MINHA LOCALIZAÇÃO DRIVING
 function getLocation() {
   
   if (navigator.geolocation) {
@@ -88,7 +88,7 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer, end) {
     .route({
       origin: myLOcation,
       destination: { lat: end.coordinates[1], lng: end.coordinates[0]},
-      travelMode: google.maps.TravelMode.DRIVING,
+      travelMode: google.maps.TravelMode.WALINKG,
     })
     .then((response) => {
       console.log(response);

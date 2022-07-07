@@ -3,8 +3,7 @@ var myLocation;
 var homeLocation;
 let map, infoWindow, coord;
 var myLOcation;
-var service;
-let coords = new Array();
+var estacoes;
 
 function initMap() {
   const directionsService = new google.maps.DirectionsService();
@@ -17,6 +16,7 @@ function initMap() {
   infoWindow = new google.maps.InfoWindow();
   getLocation();
   allStations();
+  nearbyStation();
 
   directionsRenderer.setMap(map);
 
@@ -109,7 +109,7 @@ function allStations(){
 		type:"GET",
 		dataType: 'json',
 		success: function(data){
-
+      estacoes = data;
 			data.forEach((item) => {
 				let geo = JSON.parse(item.est_geometry);
           
@@ -154,15 +154,24 @@ function allStations(){
                   shouldFocus: true,
                 });
               });
-              
-      service = new google.maps.DistanceMatrixService();
-  markerSub.forEach(item => {
+			});
+
+		}
+	});
+}
+
+function nearbyStation(){
+  var service = new google.maps.DistanceMatrixService();
+
+  let coords = new Array();          
+  estacoes.forEach(item => {
     coord = item.coord.replaceAll("POINT(", "");
     coord = coord.replaceAll(")", "");
     coord = coord.split(" ");
     const latLng = new google.maps.LatLng(coord[1], coord[0]);
     coords.push(latLng);
   });
+  
   service.getDistanceMatrix(
     {
       origins: myLOcation,
@@ -203,16 +212,6 @@ function allStations(){
       });
 
   }
-              
-
-			});
-
-		}
-	});
-}
-
-function nearbyStation(){
-  
 
 }
 

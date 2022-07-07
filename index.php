@@ -97,7 +97,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 
             <select id="endGreen">
                                       <?php
-                                              $green= pg_query($conn,"SELECT est_name, est_line,  ST_AsGeoJSON(est_geometry) as est_geometry FROM estacoes WHERE est_line LIKE '%Verde%'");
+                                              $green= pg_query($conn,"SELECT est_name, est_line,  ST_AsGeoJSON(est_geometry) as est_geometry FROM estacoes WHERE est_line LIKE '%Verde%' ORDER BY est_geometry ASC");
                                               if(empty($green)){
                                                 echo "Vazio";
                                               }else{
@@ -113,7 +113,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
                                        
             <select id="endRed" >
                                       <?php
-                                              $red= pg_query($conn,"SELECT est_name, est_line,  ST_AsGeoJSON(est_geometry) as est_geometry FROM estacoes WHERE est_line LIKE '%Vermelha%'");
+                                              $red= pg_query($conn,"SELECT est_name, est_line,  ST_AsGeoJSON(est_geometry) as est_geometry FROM estacoes WHERE est_line LIKE '%Vermelha%' ORDER BY est_geometry ASC");
                                               if(empty($red)){
                                                 echo "Vazio";
                                               }else{
@@ -129,7 +129,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 
             <select id="endYellow">
                                       <?php
-                                              $yellow= pg_query($conn,"SELECT est_name, est_line,  ST_AsGeoJSON(est_geometry) as est_geometry FROM estacoes WHERE est_line LIKE '%Amarela%'");
+                                              $yellow= pg_query($conn,"SELECT est_name, est_line,  ST_AsGeoJSON(est_geometry) as est_geometry FROM estacoes WHERE est_line LIKE '%Amarela%' ORDER BY est_geometry ASC");
                                               if(empty($yellow)){
                                                 echo "Vazio";
                                               }else{
@@ -145,7 +145,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 
             <select id="endBlue">
                                       <?php
-                                              $blue= pg_query($conn,"SELECT est_name, est_line,  ST_AsGeoJSON(est_geometry) as est_geometry FROM estacoes WHERE est_line LIKE '%Azul%'");
+                                              $blue= pg_query($conn,"SELECT est_name, est_line,  ST_AsGeoJSON(est_geometry) as est_geometry FROM estacoes WHERE est_line LIKE '%Azul%' ORDER BY est_geometry ASC");
                                               if(empty($blue)){
                                                 echo "Vazio";
                                               }else{

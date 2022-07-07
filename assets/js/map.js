@@ -32,7 +32,7 @@ function initMap() {
 
 
 //A MINHA LOCALIZAÇÃO
-function getLocation(directionsService, directionsRenderer) {
+function getLocation() {
   
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
@@ -81,9 +81,7 @@ function getLocation(directionsService, directionsRenderer) {
   }
 }
 
-function calculateAndDisplayRoute() {
-
-  
+function calculateAndDisplayRoute(directionsService, directionsRenderer) {
   let end = JSON.parse(document.getElementById("end").value);
   directionsService
     .route({

@@ -15,8 +15,7 @@ function initMap() {
   infoWindow = new google.maps.InfoWindow();
   getLocation();
   allStations();
-
-  directionsRenderer.setMap(map);
+  find_closest_markers(n);
 
   const onChangeHandler = function () {
     let end = JSON.parse(document.getElementById("end").value);
@@ -33,7 +32,7 @@ function initMap() {
 
 
 
-//A MINHA LOCALIZAÇÃO DRIVING
+//A MINHA LOCALIZAÇÃO 
 function getLocation() {
   
   if (navigator.geolocation) {
@@ -158,7 +157,6 @@ function allStations(){
 		}
 	});
 }
-
 
 
 // Linha Verde

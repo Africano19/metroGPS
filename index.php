@@ -82,7 +82,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
       <select id="end">
                                 <?php
                                         include 'db/php/db/init_connection.php';
-                                        $result1= pg_query($conn,"SELECT est_name, est_line,  ST_AsGeoJSON(est_geometry) as est_geometry FROM estacoes");
+                                        $result1= pg_query($conn,"SELECT est_name, est_line,  ST_AsGeoJSON(est_geometry) as est_geometry FROM estacoes ORDER BY est_line ASC");
                                         if(empty($result1)){
                                           echo "Vazio";
                                         }else{

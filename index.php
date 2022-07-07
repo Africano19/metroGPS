@@ -193,6 +193,14 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
   document.getElementById('endRed').style.display = "none";
   document.getElementById('endYellow').style.display = "none";
   document.getElementById('endBlue').style.display = "none";
+
+  if(document.getElementById('yellowLine').clicked == true)
+{
+  document.getElementById('endYellow').style.display = "block";
+  document.getElementById('end').style.display = "none";
+
+}
+
 </script>
 <script src="assets/js/map.js"></script> 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGBMCCQiW1-uIegj9TamCdMnlmWur8jak&callback=initMap" async defer></script>

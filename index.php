@@ -78,6 +78,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
       <h3 style="color:white; text-align:center;">Calcule a Rota até a Estação Pretendida</h3>
       <hr style="border: 2px solid white; width: 50%; margin: 0 25% 0 25%; ">
       <br/>
+      <center>
       <select id="end">
                                 <?php
                                         include 'db/php/db/init_connection.php';
@@ -168,7 +169,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
                                         }
                                   ?>        
       </select>
-
+      </center>                                  
       <br/>
       <hr style="width:200px;" class="w3-opacity">
     </div>

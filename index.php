@@ -154,21 +154,6 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
                                         }
                                   ?>        
       </select>
-
-      <select id="endALL">
-                                <?php
-                                        $all1= pg_query($conn,"SELECT est_name, est_line,  ST_AsGeoJSON(est_geometry) as est_geometry FROM estacoes");
-                                        if(empty($all1)){
-                                          echo "Vazio";
-                                        }else{
-                                          while($rowAll1 = pg_fetch_assoc($all1)){
-                                            $est_geo=$rowAll1['est_geometry'];
-                                            $est_name= $rowAll1['est_name'];
-                                            ?> <option value=<?php echo $est_geo; ?> > <?php echo $est_name; ?> </option> <?php
-                                          }
-                                        }
-                                  ?>        
-      </select>
       </center>                                  
       <br/>
       <hr style="width:200px;" class="w3-opacity">
@@ -189,7 +174,6 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 <!-- END PAGE CONTENT -->
 </div>
 <script>
-  document.getElementById('endALL').style.display = "none";
   document.getElementById('endGreen').style.display = "none";
   document.getElementById('endRed').style.display = "none";
   document.getElementById('endYellow').style.display = "none";
@@ -198,7 +182,6 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
   document.getElementById('yellowLine').onclick = function(){
     document.getElementById('endYellow').style.display = "block";
   document.getElementById('end').style.display = "none";
-  document.getElementById('endALL').style.display = "none";
   document.getElementById('endGreen').style.display = "none";
   document.getElementById('endRed').style.display = "none";
   document.getElementById('endBlue').style.display = "none";
@@ -207,7 +190,6 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 document.getElementById('blueLine').onclick = function(){
     document.getElementById('endBlue').style.display = "block";
   document.getElementById('end').style.display = "none";
-  document.getElementById('endALL').style.display = "none";
   document.getElementById('endGreen').style.display = "none";
   document.getElementById('endRed').style.display = "none";
   document.getElementById('endYellow').style.display = "none";
@@ -216,7 +198,6 @@ document.getElementById('blueLine').onclick = function(){
 document.getElementById('redLine').onclick = function(){
     document.getElementById('endRed').style.display = "block";
   document.getElementById('end').style.display = "none";
-  document.getElementById('endALL').style.display = "none";
   document.getElementById('endGreen').style.display = "none";
   document.getElementById('endYellow').style.display = "none";
   document.getElementById('endBlue').style.display = "none";
@@ -225,14 +206,12 @@ document.getElementById('redLine').onclick = function(){
 document.getElementById('greenLine').onclick = function(){
     document.getElementById('endGreen').style.display = "block";
   document.getElementById('end').style.display = "none";
-  document.getElementById('endALL').style.display = "none";
   document.getElementById('endRed').style.display = "none";
   document.getElementById('endYellow').style.display = "none";
   document.getElementById('endBlue').style.display = "none";}
 
 document.getElementById('allLines').onclick = function(){
-  document.getElementById('endAll').style.display = "block";
-  document.getElementById('end').style.display = "none";
+  document.getElementById('end').style.display = "block";
   document.getElementById('endGreen').style.display = "none";
   document.getElementById('endRed').style.display = "none";
   document.getElementById('endYellow').style.display = "none";

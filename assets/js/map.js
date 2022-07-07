@@ -537,10 +537,10 @@ $(document).ready(function() {
     directionsRenderer.setMap(map);
 
     const onChangeHandler = function () {
-      let endAll = JSON.parse(document.getElementById("endAll").value);
+      let endAll = JSON.parse(document.getElementById("end").value);
       calculateAndDisplayRoute(directionsService, directionsRenderer, endAll);
     };
-    (document.getElementById("endAll")).addEventListener(
+    (document.getElementById("end")).addEventListener(
       "change",
       onChangeHandler
     );

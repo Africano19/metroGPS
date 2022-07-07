@@ -157,13 +157,7 @@ function allStations(){
               });
               
               
-              markerSub.forEach(item => {
-                coord = item.coord.replaceAll("POINT(", "");
-                coord = coord.replaceAll(")", "");
-                coord = coord.split(" ");
-                const latLng = new google.maps.LatLng(coord[1], coord[0]);
-                coords.push(latLng);
-              });
+              
 
 			});
 
@@ -173,6 +167,13 @@ function allStations(){
 
 function nearbyStation(){
   service = new google.maps.DistanceMatrixService();
+  markerSub.forEach(item => {
+    coord = item.coord.replaceAll("POINT(", "");
+    coord = coord.replaceAll(")", "");
+    coord = coord.split(" ");
+    const latLng = new google.maps.LatLng(coord[1], coord[0]);
+    coords.push(latLng);
+  });
   service.getDistanceMatrix(
     {
       origins: myLOcation,
